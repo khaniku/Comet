@@ -1,3 +1,5 @@
+export default FORMAT {
+
 body {
     font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
     font-size: 100%;
@@ -113,3 +115,4 @@ img {
 hr {
     border: 0.5px, solid #bdc3c7;
 }
+};
