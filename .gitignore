@@ -32,5 +32,5 @@ build/
 
 # Ignore babel/react dependencies -> Nnamdi
 /*/node_modules/
-/*/package.json
+#/*/package.json
 /*/yarn.lock
