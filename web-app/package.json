@@ -10,6 +10,6 @@
     "babel-preset-react": "^6.24.1"
   },
   "scripts": {
-    "start": "node ~/Comet/web-app/js/index.js"
+    "start": "node /comet-web-app/Comet/web-app/js/index.js"
   }
 }
