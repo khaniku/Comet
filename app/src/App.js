@@ -1,27 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Login from './auth/login.js';
+import { Router } from 'react-router-dom';
+import history from './services/history';
+import Routes from './routes';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from "redux";
+import thunk from 'redux-thunk';
+import reducers from "./reducers";
+import storage from 'redux-persist/lib/storage' 
+import { persistStore, persistReducer } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+
+const persistConfig = {
+  key: "root", // name of the key for storing the data
+  storage: storage // storage to use. defaults to Localstorage
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
+const store = createStore(persistedReducer, applyMiddleware(thunk));
+let persistor = persistStore(store);
 
 function App() {
   return (
-    <div className="App">
-	  <Login />
-					{/*<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>*/}
-    </div>
+    <Provider store={store}>
+        <PersistGate persistor={persistor}>
+        <Router history={history}>
+          <Routes />
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 }
 

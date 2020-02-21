@@ -1,118 +1,118 @@
-export default FORMAT {
+const useStyles = makeStyles(theme => ({
 
-body {
-    font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-    font-size: 100%;
-    background-color: #A9A9A9;
-}
+body : {
+    fontFamily: 'Open Sans', 
+    fontSize: "100%",
+    backgroundColor: '#A9A9A9',
+},
 
-main {
-    border: 1px solid #ebf2f9;
-    border-radius: 25px;
-    background-color: aliceblue;
-    position: absolute;
-    width: 950px;
-    height: 650px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
+main: {
+    border: '1px solid #ebf2f9',
+    borderRadius: '25px',
+    backgroundColor: aliceblue,
+    position: absolute,
+    width: '950px',
+    height: '650px',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    margin: auto,
+},
 
-#login {
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: #ffe0b3;
-    width: 650px;
-    bottom: 300px;
-    float: right;
-    margin-left: 1em;
-    margin-top: 5em;
-}
+login : {
+    border: '1px solid gray',
+    borderRadius: '10px',
+    backgroundColor: '#ffe0b3',
+    width: '650px',
+    bottom: '300px',
+    float: right,
+    marginLeft: '1em',
+    marginTop: '5em',
+},
 
 
-#sign-up {
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: #ffe0b3;
-    width: 650px;
-    bottom: 250px;
-    float: right;
-    margin-left: 1em;
-    margin-top: 2em;
-}
+sign_up : {
+    border: '1px solid gray',
+    borderRadius: '10px',
+    backgroundColor: '#ffe0b3',
+    width: '650px',
+    bottom: '250px',
+    float: right,
+    marginLeft: '1em',
+    marginTop: '2em',
+},
 
-section button {
-    margin-bottom: 1em;
-    margin-top: 0.8em;
-}
+section_button :{
+    marginBottom: '1em',
+    marginTop: '0.8em',
+},
 
-span {
-    color: red;
-}
+span : {
+    color: red,
+},
 
-.right-shift {
-    padding-left: 20px;
-}
+right_shift :{
+    'padding-left': '20px',
+},
 
-header h2 {
-    background-color: #f78e1e;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin: auto;
-}
+header :{
+    backgroundColor: '#f78e1e',
+    border: '1px solid gray',
+    borderRadius: '10px',
+    margin: auto,
+},
 
-a:hover, a:active {
-    text-decoration: none;
-    color: #0000cc;
-}
+activeLink : {
+    textDecoration: none,
+    color: '#0000cc',
+},
 
-a:visited {
-    text-decoration: none;
-    color: #0000cc;
-}
+visitedLink : {
+    textDecoration: none,
+    color: '#0000cc',
+},
 
 /*
  #checkbox {
-    margin-left: 2em;
-    display: block;
-    margin-top: 1em;
+    margin-left: 2em,
+    display: block,
+    margin-top: 1em,
 }
 */
 
-label {
-    display: flex;
-    line-height: 25px;
-    font-size: 100%;
-    font-weight: bold;
+label : {
+    display: flex,
+    lineHeight: '25px',
+    fontSize: '100%',
+    fontWeight: bold,
+},
+
+input : {
+    height: '25px',
+    marginLeft: '50px',
+    width: '200px',
+    border: '2px solid gray',
+    borderRadius: '10px',
+},
+
+button : {
+    width: '15%',
+    marginTop: '5%',
+    marginLeft: '10%',
+    marginRight: '20%',
+    display: block,
+    lineHeight: '25px',
+    borderRadius: '5px',
+},
+
+img : {
+    float: left,
+    marginRight: '1em',
+    marginTop: '5em',
 }
 
-input {
-    height: 25px;
-    margin-left: 50px;
-    width: 200px;
-    border: 2px solid gray;
-    border-radius: 10px;
-}
+}));
 
-button {
-    width: 15%;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 20%;
-    display: block;
-    line-height: 25px;
-    border-radius: 5px;
-}
-
-img {
-    float: left;
-    margin-right: 1em;
-    margin-top: 5em;
-}
-
-hr {
-    border: 0.5px, solid #bdc3c7;
-}
-};
+const FORMAT = useStyles();
+export default FORMAT;
