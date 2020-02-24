@@ -19,8 +19,8 @@
     "path": "~/Documents/git-local-repo/Comet/web-app/"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node js//index.js",
-    "build": "npm run js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -46,7 +46,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/register": "^7.8.3",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^25.1.0",
+    "babel-jest": "^24.9.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "nodemon": "^2.0.2",
