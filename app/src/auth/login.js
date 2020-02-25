@@ -18,6 +18,13 @@ class Login extends React.Component {
         errorText: '',
         showError: false
     }
+    //this._checkLogin();
+  }
+
+  _checkLogin() {
+      if(this.props.isLoggedIn){
+        this.props.history.push("/dashboard");
+      }
   }
 
   /**
@@ -45,23 +52,23 @@ class Login extends React.Component {
             </nav>
         <div id="login">
             <div id="header">
-                <header>
-                    <h2 class={FORMAT.right_shift}>Existing User</h2>
-                    <h3 class={FORMAT.right_shift}>Required fields:<span> *</span></h3>
+                <header className="header">
+                    <h2 className="right_shift">Existing User</h2>
+                    <h3 className="right_shift">Required fields:<span> *</span></h3>
                 </header>
             </div>
-            <p class={FORMAT.right_shift}>Log into your account:</p>
+            <p className="right_shift">Log into your account:</p>
                 {this.state.showError ? (
                                 <p class={FORMAT.right_shift}>{this.state.errorText}</p>
                 ) : null}
-                <label for="email" class={FORMAT.right_shift}>Email: </label>
-                <input type="email" value={this.state.value}  onChange={(e) => this.handleUsernameChange(e)}  required /><span id={FORMAT.email_required}> *</span>
+                <label for="email" className="right_shift">Email: </label>
+                <input className="input" type="email" value={this.state.value}  onChange={(e) => this.handleUsernameChange(e)}  required /><span id="email_required"> *</span>
 
-                <label for="password" class={FORMAT.right_shift}>Password: </label>
-                <input type="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e)} required /><span id={FORMAT.password_required}> *</span>
+                <label for="password" className="right_shift">Password: </label>
+                <input type="password" className="input" value={this.state.password} onChange={(e) => this.handlePasswordChange(e)} required /><span id={FORMAT.password_required}> *</span>
                 
-                <button id={FORMAT.login_button} onClick={()=> this.loginUser()}>Login</button>
-            <p><a href="./dashboard" alt="Password reset page" class={FORMAT.right_shift}>Forgot your password?</a></p>
+                <button id="login_button" onClick={()=> this.loginUser()}>Login</button>
+            <p><a href="./dashboard" alt="Password reset page" className="right_shift">Forgot your password?</a></p>
         </div>
         {/*This should be in signup page */}
         <div id={FORMAT.sign_up}>
@@ -71,7 +78,7 @@ class Login extends React.Component {
                 </header>
                 <section>
                     <p class={FORMAT.righ_shift}>Create new user account:</p>
-                    <button id={FORMAT.signup_button} ><Link to="/signup">Sign up</Link></button>
+                    <button id="button" ><Link to="/signup">Sign up</Link></button>
                 </section>
             </form>
         </div>
@@ -117,6 +124,10 @@ class Login extends React.Component {
 
 }
 
+const mapStateToProps = state => {
 
-export default connect(null, actions)(Login)
+    return {isLoggedIn: state.auth.isLoggedIn}
+}
+  
+export default connect(mapStateToProps, actions)(Login)
 

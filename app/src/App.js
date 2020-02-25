@@ -12,7 +12,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 
 const persistConfig = {
-  key: "root", // name of the key for storing the data
+  key: "root0", // name of the key for storing the data
   storage: storage // storage to use. defaults to Localstorage
 };
 const persistedReducer = persistReducer(persistConfig, reducers);

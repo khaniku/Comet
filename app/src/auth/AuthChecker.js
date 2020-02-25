@@ -16,7 +16,6 @@ class AuthChecker extends React.Component {
   _bootstrapAsync = async () => {
     let accessToken = localStorage.getItem('accessToken')
     this.props.history.push(accessToken ? "/dashboard": "/login");
-    console.warn("accessToken "+ accessToken)
     if(await this.props.accessToken == null){
         localStorage.removeItem('accessToken');
         this.props.history.push("/login")
@@ -32,7 +31,7 @@ class AuthChecker extends React.Component {
 
 const mapStateToProps = state => {
 
-  return {accessToken: state.accessToken}
+  return {accessToken: state.auth.accessToken}
 }
 
 export default connect(mapStateToProps)(AuthChecker)

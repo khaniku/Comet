@@ -1,9 +1,15 @@
 import { AUTH } from "../constants/ActionTypes";
 
-export default (state = null, action) => {
+//Define your initialState
+const initialState = {
+	accessToken: '',
+	isLoggedIn: false
+}
+
+export default (state = initialState, action) => {
 	switch (action.type) {
 		case AUTH:
-			return action.payload;
+			return {...state, accessToken: action.payload, isLoggedIn: true};
 		default:
 	 		return state;
 	}

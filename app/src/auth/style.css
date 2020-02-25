@@ -2,7 +2,6 @@
 body {
     font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
     font-size: "100%";
-    background-color: #A9A9A9;
 }
 
 main {
@@ -41,11 +40,11 @@ main {
     margin-left: 1em;
     margin-top: 2em;
 }
-
+/* 
 section button {
     margin-bottom: 1em;
     margin-top: 0.8em;
-}
+} */
 
 span {
     color: red;
@@ -55,7 +54,7 @@ span {
     padding-left: 20px;
 }
 
-header h2 {
+.header {
     background-color: #f78e1e;
     border: 1px solid gray;
     border-radius: 10px;
@@ -87,7 +86,7 @@ label {
     font-weight: bold;
 }
 
-input {
+.input {
     height: 25px;
     margin-left: 50px;
     width: 200px;
@@ -95,7 +94,7 @@ input {
     border-radius: 10px;
 }
 
-button {
+#button {
     width: 15%;
     margin-top: 5%;
     margin-left: 10%;
@@ -103,9 +102,11 @@ button {
     display: block;
     line-height: 25px;
     border-radius: 5px;
+    margin-bottom: 1em;
+    margin-top: 0.8em;
 }
 
-img {
+.img {
     float: left;
     margin-right: 1em;
     margin-top: 5em;
