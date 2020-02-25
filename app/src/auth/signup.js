@@ -86,7 +86,7 @@ export default class SignUp extends React.Component {
  }
 
  async signUp(formData) {
-    await fetch("http://localhost:5000/api/auth/signup", {
+    await fetch("http://158.203.100.198:5000/api/auth/signup", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
