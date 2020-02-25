@@ -2,6 +2,7 @@ package com.comet.survey.model;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @NoArgsConstructor
@@ -14,6 +15,7 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @NaturalId
     @Column(length = 60)
+    @NotBlank
     private RoleName name;
 
     public Role(RoleName name) {
