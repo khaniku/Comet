@@ -1,0 +1,118 @@
+
+body {
+    font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    font-size: "100%";
+}
+
+main {
+    border: 1px solid #ebf2f9;
+    border-radius: 25px;
+    background-color: aliceblue;
+    position: absolute;
+    width: 950px;
+    height: 650px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#login {
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #ffe0b3;
+    width: 650px;
+    bottom: 300px;
+    float: right;
+    margin-left: 1em;
+    margin-top: 5em;
+}
+
+
+#sign_up {
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #ffe0b3;
+    width: 650px;
+    bottom: 250px;
+    float: right;
+    margin-left: 1em;
+    margin-top: 2em;
+}
+/* 
+section button {
+    margin-bottom: 1em;
+    margin-top: 0.8em;
+} */
+
+span {
+    color: red;
+}
+
+.right_shift {
+    padding-left: 20px;
+}
+
+.header {
+    background-color: #f78e1e;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: auto;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: #0000cc;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #0000cc;
+}
+
+/*
+ #checkbox {
+    margin-left: 2em;
+    display: block;
+    margin-top: 1em;
+}
+*/
+
+label {
+    display: flex;
+    line-height: 25px;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.input {
+    height: 25px;
+    margin-left: 50px;
+    width: 200px;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+#button {
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 20%;
+    display: block;
+    line-height: 25px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    margin-top: 0.8em;
+}
+
+.img {
+    float: left;
+    margin-right: 1em;
+    margin-top: 5em;
+}
+
+hr {
+    border: 0.5px, solid #bdc3c7;
+}
+

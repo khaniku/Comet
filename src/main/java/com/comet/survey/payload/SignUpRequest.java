@@ -1,5 +1,6 @@
 package com.comet.survey.payload;
 
+import com.comet.survey.model.RoleName;
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -15,16 +16,18 @@ public class SignUpRequest {
     private String lastName;
 
     @NotBlank
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 25)
     private String username;
 
     @NotBlank
-    @Size(max = 40)
+    @Size(max = 60)
     @Email
     private String email;
 
     @NotBlank
     @Size(min = 6, max = 20)
     private String password;
+
+    private RoleName role;
 
 }
