@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nnamdi Nwachukwu">
+    <link rel="stylesheet" type="text/css" href="../src/dashboard.css">
+    <script type="application/javascript" src="https://unpkg.com/react@16.7.0/umd/react.development.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.min.js"></script>
+    <script type="application/javascript" src="../src/pagination.js"></script>
+</head>
+
+<body>
+    <main>
+        <nav>
+            <a href="https://www.cometsigns.com/"><img src="../src/comet-logo.png" target="_blank" alt="comet signs logo"></a>
+        </nav>
+        <header>
+            <h1>Search Template Instances</h1>
+        </header>
+        <div id="right-panel">
+            <label for="name-search">Name: </label>
+            <input type="text" id="name-search">
+
+            <label for="status">Status:</label>
+            <select name="selection" id="status">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <table id="templates-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Created on</th>
+                        <th>Completed on</th>
+                        <th>Deadline</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input class="button" type="button" value="view"></td>
+                        <td>
+                            <form action="" method="post">
+                                <button class="button" id="delete-button" name="action" value="delete" onclick="return confirm('Are you sure you want to delete this template?');">delete</button>
+
+                                <input type="hidden" name="" value="">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <button>Create template</button>
+            <button>View templates</button>
+        </div>
+    </main>
+</body>
+
+</html>
