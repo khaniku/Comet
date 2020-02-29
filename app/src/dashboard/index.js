@@ -7,7 +7,7 @@ export default class Dashboard extends React.Component {
         return (
     <main>
         <nav>
-          <a href="https://www.cometsigns.com/"><img src={cometLogo.comet-logo.png} target="_blank" alt="comet signs logo" /></a>		
+          <a href="https://www.cometsigns.com/"><img src={cometLogo} target="_blank" alt="comet signs logo" /></a>		
         </nav>
         <header>
             <h1>Search Template Instances</h1>
