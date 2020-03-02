@@ -16,61 +16,9 @@ export default class ButtonPanel extends React.Component {
   render() {
     return (
       <div className="page Entry">
-        <div id="ihtr">
-  <div class="gdp-row">
-    <div id="ib6jk" class="cell">
-      
     
-     
-       
-       
-    
-    </div>
-    <div id="i6899" class="cell">
-   
-    </div>
-    <div id="ir2va" class="cell">
-      <form method="post" id="igugym" data-redirect="" class="form">
-        <div id="ixtevk" class="form-group">
-        
-        </div>
-        <div class="form-group">
-          <button type="submit" id="ioakg4" class="button">Send</button>
-        </div>
-        <div data-form-state="success" id="i873b2" class="state-success">Thanks! We received your request
-        </div>
-        <div data-form-state="error" id="i1kp7r" class="state-error">An error occurred on processing your request, try again!
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 <div id="icdj" class="gdp-row">
-  <div id="idks" class="cell">
-    <form method="post" id="i39i" data-redirect="" class="form">
-      <div id="i40g" class="form-group">
-        <label id="i65f" class="label">Add Template</label>
-        <div class="form-group">
-          <select name="options" id="ipjel" class="select"><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
-        </div>
-      </div>
-      <div id="iwvh" class="form-group">
-        <label id="ipjor" class="label">Add Asset</label>
-        <input type="email" placeholder="Type here your email" name="email" id="i3t1m" class="input"/>
-      </div>
-      <div class="form-group">
-        <label class="label">Add Picture&nbsp;</label>
-        <select name="options" id="i0obg" class="select"><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
-      </div>
-      <div class="form-group">
-        <button type="submit" id="ibnfa" class="button">Send</button>
-      </div>
-      <div data-form-state="success" id="id0ab" class="state-success">Thanks! We received your request
-      </div>
-      <div data-form-state="error" id="ic3i5" class="state-error">An error occurred on processing your request, try again!
-      </div>
-    </form>
-  </div>
+
   <div id="iig7" class="cell">
     <form method="post" id="ii3sj" data-redirect="" class="form">
       <div id="i829i" class="form-group">
