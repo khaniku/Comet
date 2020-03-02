@@ -23,11 +23,11 @@ export default class ButtonPanel extends React.Component {
     <form method="post" id="ii3sj" data-redirect="" class="form">
       <div id="i829i" class="form-group">
         <label id="igpzo" class="label">Site Address</label>
-        <input placeholder="Type here your name" name="firstname" id="ipbml" class="input"/>
+        <input placeholder="" name="firstname" id="ipbml" class="input"/>
       </div>
       <div id="ife2e" class="form-group">
         <label id="imd3w" class="label">Customer name</label>
-        <input type="email" placeholder="Type here your email" name="email" id="ika0f" class="input"/>
+        <input type="email" placeholder="" name="email" id="ika0f" class="input"/>
       </div>
       <div id="i3bkc" class="form-group">
         <label id="iyopf" class="label">Customer email (Optional)</label>
