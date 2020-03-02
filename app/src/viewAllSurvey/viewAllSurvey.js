@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonPanel from './Components/ButtonPanel';
+
 
 export default class viewAllSurvey extends React.Component {
 

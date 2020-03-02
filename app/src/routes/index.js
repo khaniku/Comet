@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import { Route, Redirect } from 'react-router-dom'
 import Login from '../auth/login.js';
 import AuthChecker from '../auth/AuthChecker';
+import viewAllSurvey from '../viewAllSurvey/viewAllSurvey';
 import Dashboard from '../dashboard';
 import SignUp from '../auth/signup.js';
 import createSurvey from '../surveys/createSurvey';
@@ -15,11 +16,12 @@ class Routes extends React.Component {
         <Switch>
             {/* <Route path="/" exact component={AuthChecker} /> */}
             <Route path="/" exact component={createSurvey} />
-            <Route path="/viewallsurveys" exact component={createSurvey} />
+            <Route path="/viewAllSurvey" exact component={viewAllSurvey} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
             {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
             <AuthenticatedRoute path="/dashboard" component={Dashboard} />  
+            
         </Switch>
         );
     }
