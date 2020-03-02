@@ -1,31 +1,17 @@
-* {
-    box-sizing: content-box;
-  }
-  body {
-    margin: 0;
-  }
-  #igxc07{
-    display:none;
-  }
-  #id60ii{
-    display:none;
-  }
-  #iqu5bc{
-    background-color:#7265dc;
-  }
-  #ibk03b{
-    background-color:#ffffff;
-  }
-  #irdf{
-    display:none;
-  }
-  #iv82{
-    display:none;
-  }
-  #ithd{
-    background-color:#ffffff;
-  }
-  #im2f{
-    background-color:#7265dc;
-  }
+.component-button-panel {
+  background-color: #858694;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
+}
+
+.component-button-panel > div {
+  width: 100%;
+  margin-bottom: 1px;
+  flex: 1 0 auto;
+  display: flex;
+}
+
+
   
