@@ -6,14 +6,7 @@ export default class viewAllSurvey extends React.Component {
   
     handleClick = buttonName => {
       this.setState();
-    };
-      
-  
- 
-      
-      
-      
-      
+    };  
       render() {
           return (
               <div>  
