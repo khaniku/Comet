@@ -46,18 +46,9 @@ export default class ButtonPanel extends React.Component {
           <label class="label">Message</label>
           <textarea name="message" class="textarea"></textarea>
         </div>
-        <div id="i47hr">
-        </div>
+        
       </div>
-      <div id="ig8xu" class="gdp-row">
-       
-        <div class="cell">
-          <div id="izrzk" class="form-group">
-            <label id="im8cy" class="label">Add Picture</label>
-            <select name="options" id="ikeh7" class="select"><option value="1">Option 1</option><option value="2">Option 2</option><option value="3">Option 3</option></select>
-          </div>
-        </div>
-      </div>
+     
       <div id="i8iul" class="form-group">
         <label id="i5lk5" class="label">Asset 2</label>
         <div id="icwu2">
