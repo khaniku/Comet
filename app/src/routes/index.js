@@ -15,6 +15,7 @@ class Routes extends React.Component {
         <Switch>
             {/* <Route path="/" exact component={AuthChecker} /> */}
             <Route path="/" exact component={createSurvey} />
+            <Route path="/viewallsurveys" exact component={createSurvey} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
             {/* redirect user to SignIn page if route does not exist and user is not authenticated */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonPanel from './Components/ButtonPanel';
+import {Link} from "react-router-dom";
 
 
 export default class createSurvey extends React.Component {
@@ -30,6 +31,7 @@ editOtherSurvey = () =>{
           <div id="iqfehu" class="form-group">
             <button type="submit" onClick ={() => this.viewAllSurvey()}   id="iqu5bc" class="Button">View all Surveys</button>
             <button type="submit" onClick ={() => this.editOtherSurvey()} class="Button" id="im2f">Edit other Survey</button>
+            <button id="button" ><Link to="../viewAllSurvey/viewAllSurvey">View All Surveys</Link></button>
           </div>
           </div></h1>
      <h2> <div id="i40g" class="column">
