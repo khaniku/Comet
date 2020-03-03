@@ -7,6 +7,7 @@ import viewAllSurvey from '../viewAllSurvey/viewAllSurvey';
 import Dashboard from '../dashboard';
 import SignUp from '../auth/signup.js';
 import createSurvey from '../surveys/createSurvey';
+import AllSurvey from '../viewAllSurvey/App';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 
@@ -17,6 +18,10 @@ class Routes extends React.Component {
             {/* <Route path="/" exact component={AuthChecker} /> */}
             <Route path="/" exact component={createSurvey} />
             <Route path="/viewAllSurvey" exact component={viewAllSurvey} />
+            <Route path="/AllSurvey" exact component={AllSurvey} />
+
+            
+
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={SignUp} />
             {/* redirect user to SignIn page if route does not exist and user is not authenticated */}

@@ -28,8 +28,10 @@ editOtherSurvey = () =>{
         <div className="component-button-panel">
       <div class="gdp-row">
       <h1>
-            <button id="button" ><Link to="/viewAllSurvey">View All Surveys</Link></button>
+            <button id="button" ><Link to="/AllSurvey">View All Survey</Link></button>
+          
             <button id="button" ><Link to="/editOtherSurvey">Edit Other Survey</Link></button>
+    
           </h1>
      <h2> <div id="i40g" class="column">
         <div class="form-group">
