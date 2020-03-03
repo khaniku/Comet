@@ -7,7 +7,7 @@ import viewAllSurvey from '../viewAllSurvey/viewAllSurvey';
 import Dashboard from '../dashboard';
 import SignUp from '../auth/signup.js';
 import createSurvey from '../surveys/createSurvey';
-import AllSurvey from '../viewAllSurvey/App';
+import allSurvey from '../viewAllSurvey/index';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 
@@ -17,8 +17,9 @@ class Routes extends React.Component {
         <Switch>
             {/* <Route path="/" exact component={AuthChecker} /> */}
             <Route path="/" exact component={createSurvey} />
-            <Route path="/viewAllSurvey" exact component={viewAllSurvey} />
-            <Route path="/AllSurvey" exact component={AllSurvey} />
+            
+            <Route path="/allSurvey" exact component={allSurvey} />
+            
 
             
 

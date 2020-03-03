@@ -23,6 +23,12 @@ export default class ButtonPanel extends React.Component {
   handleAddressChange(event) {
     this.setState({siteAddress: event.target.value});
   }
+  handleCustomerNameChange(event) {
+    this.setState({customerName: event.target.value});
+  }
+  handleCustomerEmailChange(event) {
+    this.setState({customerEmail: event.target.value});
+  }
 
   handleClick = buttonName => {
     this.props.clickHandler(buttonName);
@@ -47,10 +53,12 @@ export default class ButtonPanel extends React.Component {
       <div id="ife2e" class="form-group">
         <label id="imd3w" class="label">Customer name</label>
         <input type="email" placeholder="" name="email" id="ika0f" class="input"/>
+        <input className="input" type="address" value={this.state.value}  onChange={(e) => this.handleCustomerNameChange(e)}  required /><span id="site address required"> *</span>
       </div>
       <div id="i3bkc" class="form-group">
         <label id="iyopf" class="label">Customer email (Optional)</label>
         <input type="email" placeholder="" name="email" class="input"/>
+        <input className="input" type="address" value={this.state.value}  onChange={(e) => this.handleCustomerEmailChange(e)}  required /><span id="site address required"> *</span>
       </div>
       <div id="iekyo" class="form-group">
         <label id="ihead" class="label">Asset 1</label>

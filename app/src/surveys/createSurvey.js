@@ -38,7 +38,7 @@ export default class createSurvey extends React.Component {
         <div className="component-button-panel">
       <div class="gdp-row">
       <h1>
-            <button id="button" ><Link to="/AllSurvey">View All Survey</Link></button>
+            <button id="button" ><Link to="/allSurvey">View All Survey</Link></button>
           
             <button id="button" ><Link to="/editOtherSurvey">Edit Other Survey</Link></button>
     
