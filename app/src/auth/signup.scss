@@ -10,10 +10,13 @@ $radius: 3px;
 }
 
 // Mixins
-@mixin transition($prop: all, $duration: .25s, $timing: cubic-bezier(.4,0,1,1)) {
+@mixin transition(
+  $prop: all,
+  $duration: 0.25s,
+  $timing: cubic-bezier(0.4, 0, 1, 1)
+) {
   transition: $prop $duration $timing;
 }
-
 
 *,
 *:after,
@@ -22,7 +25,7 @@ $radius: 3px;
 }
 
 body {
-  font: 100% 'Roboto', arial, sans-serif;
+  font: 100% "Roboto", arial, sans-serif;
   background: $color-grey-light;
 }
 
@@ -34,7 +37,7 @@ body {
   max-width: remy(380px);
   background-color: #fff;
   border-radius: $radius;
-  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
 }
 
 h1 {
@@ -47,7 +50,7 @@ h1 {
 .form-group {
   padding: 0;
   border: 0;
-  
+
   & + & {
     margin-top: 1rem;
   }
@@ -55,8 +58,8 @@ h1 {
 
 .label {
   display: inline-block;
-  margin-bottom: .5rem;
-  font-size: .75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   touch-action: manipulation;
   margin-left: 10px;
@@ -65,7 +68,7 @@ h1 {
 
 .input_signup {
   display: block;
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   width: 100%;
   font-size: 1rem;
   line-height: 1.25;
@@ -79,17 +82,16 @@ h1 {
   border-left: 0;
   border-radius: $radius;
   @include transition;
-  
+
   &:focus {
     outline: 0;
     border-bottom-color: $color-primary;
   }
 }
 
-
 .btn {
   display: inline-block;
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   margin-top: 1.618rem;
   font-weight: 400;
   text-align: center;
@@ -99,29 +101,30 @@ h1 {
   white-space: nowrap;
   background-color: $color-primary;
   border: 1px solid transparent;
-  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   cursor: pointer;
   user-select: none;
   @include transition;
-  
+
   &:focus,
   &:hover {
     background-color: lighten($color-primary, 13%);
-    box-shadow: 0 18px 35px rgba(50,50,93,.1),0 8px 15px rgba(0,0,0,.07);
+    box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1),
+      0 8px 15px rgba(0, 0, 0, 0.07);
   }
-  
+
   &:focus {
     outline: 0;
   }
 }
 
 .error_text {
-    color: '#bb3333',
+  color: "#bb3333";
 }
 .checkbox {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .checkbox {
-    margin-top: 5px;
+  margin-top: 5px;
 }
