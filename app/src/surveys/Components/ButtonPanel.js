@@ -99,8 +99,9 @@ export default class ButtonPanel extends React.Component {
       </div>
 
       <div id="ijnh2" class="form-group">
-        <label id="idvam" class="label">Assign to Surveyor</label>
-        <textarea name="message" class="textarea"></textarea>
+      
+        <button type="submit" id="ivfmj" class="button">Assign to Surveyor</button>
+      
      
       </div>
       <div id="igfc3" class="form-group">
