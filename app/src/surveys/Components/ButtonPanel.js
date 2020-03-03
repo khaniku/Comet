@@ -13,6 +13,10 @@ export default class ButtonPanel extends React.Component {
     this.props.clickHandler(buttonName);
   };
 
+  submitSurvey = buttonName => {
+    this.props.clickHandler(buttonName);
+  }
+
   render() {
     return (
       <div className="page Entry">
