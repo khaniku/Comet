@@ -5,20 +5,30 @@ import {Link} from "react-router-dom";
 
 export default class createSurvey extends React.Component {
 
+
+
   
   handleClick = buttonName => {
     this.setState();
   };
-    
 
-viewAllSurvey = () =>{
+  addTemplate = buttonName => {
+    this.setState();
+  };
+
+  addAsset = buttonName => {
+    this.setState();
+  };
+
+  addMeasurement = buttonName => {
+    this.setState();
+  };
+
+  addPicture = buttonName => {
+    this.setState();
+  };
      
-}  
 
-editOtherSurvey = () =>{
-    alert("edit other survey")
-}  
-    
     
     
     
@@ -35,10 +45,10 @@ editOtherSurvey = () =>{
           </h1>
      <h2> <div id="i40g" class="column">
         <div class="form-group">
-          <button type="submit" id="iumg4" class="button">Add Template</button>
-          <button type="submit" id="ih7jj" class="button">Add Asset</button>
-          <button type="submit" id="itvhz" class="button">Add Measurement</button>
-          <button type="submit" id="ibnfa" class="button">Add Picture</button>
+          <button type="submit" handleclick = {this.addTemplate}id="iumg4" class="button">Add Template</button>
+          <button type="submit" handleclick = {this.addAsset} id="ih7jj" class="button">Add Asset</button>
+          <button type="submit" handleclick = {this.addMeasurement} id="itvhz" class="button">Add Measurement</button>
+          <button type="submit" handleclick ={this.addPicture} id="ibnfa" class="button">Add Picture</button>
         </div>
       </div>
       </h2>

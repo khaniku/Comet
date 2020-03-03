@@ -9,6 +9,21 @@ export default class ButtonPanel extends React.Component {
     clickHandler: PropTypes.func,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+        siteAddress : '', 
+        customerName : '',
+        customerEmail : '',
+     
+    }
+    //this._checkLogin();
+  }
+
+  handleAddressChange(event) {
+    this.setState({siteAddress: event.target.value});
+  }
+
   handleClick = buttonName => {
     this.props.clickHandler(buttonName);
   };
@@ -27,7 +42,7 @@ export default class ButtonPanel extends React.Component {
     <form method="post" id="ii3sj" data-redirect="" class="form">
       <div id="i829i" class="form-group">
         <label id="igpzo" class="label">Site Address</label>
-        <input placeholder="" name="firstname" id="ipbml" class="input"/>
+      <input className="input" type="address" value={this.state.value}  onChange={(e) => this.handleAddressChange(e)}  required /><span id="site address required"> *</span>
       </div>
       <div id="ife2e" class="form-group">
         <label id="imd3w" class="label">Customer name</label>
