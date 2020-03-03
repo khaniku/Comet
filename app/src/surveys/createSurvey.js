@@ -27,14 +27,10 @@ editOtherSurvey = () =>{
          
         <div className="component-button-panel">
       <div class="gdp-row">
-      <h1><div class="cell">
-          <div id="iqfehu" class="form-group">
-            <button type="submit" onClick ={() => this.viewAllSurvey()}   id="iqu5bc" class="Button">View all Surveys</button>
-            <button type="submit" onClick ={() => this.editOtherSurvey()} class="Button" id="im2f">Edit other Survey</button>
+      <h1>
             <button id="button" ><Link to="/viewAllSurvey">View All Surveys</Link></button>
-            
-          </div>
-          </div></h1>
+            <button id="button" ><Link to="/editOtherSurvey">Edit Other Survey</Link></button>
+          </h1>
      <h2> <div id="i40g" class="column">
         <div class="form-group">
           <button type="submit" id="iumg4" class="button">Add Template</button>
