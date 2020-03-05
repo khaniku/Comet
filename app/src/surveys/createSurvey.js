@@ -4,10 +4,6 @@ import {Link} from "react-router-dom";
 
 
 export default class createSurvey extends React.Component {
-
-
-
-  
   handleClick = buttonName => {
     this.setState();
   };
@@ -27,11 +23,6 @@ export default class createSurvey extends React.Component {
   addPicture = buttonName => {
     this.setState();
   };
-     
-
-    
-    
-    
     render() {
         return (
          
