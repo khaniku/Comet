@@ -25,6 +25,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Collections;
+import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -45,9 +47,6 @@ public class AuthController {
     @Autowired
     JwtTokenProvider tokenProvider;
 
-    @RequestMapping("/hello")
-    public String hello()  { return "Hello world!!"; }
-
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -61,7 +60,15 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+        String usernameOrEmail = loginRequest.getUsernameOrEmail();
+        Optional<User> user;
+        user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);
+        User userDetails = new User();
+        if(user.isPresent()){
+            userDetails = user.get();
+        }
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt, userDetails.getId(), userDetails.getUsername(),
+                userDetails.getEmail(), userDetails.getFirstName(),userDetails.getLastName(), authentication.getAuthorities()));
     }
 
     @PostMapping("/signup")
