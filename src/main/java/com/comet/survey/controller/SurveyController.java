@@ -42,7 +42,6 @@ public class SurveyController {
         if(getSurveyor.isPresent()){
             surveyor = getSurveyor.get();
         }
-
         survey.setSurveyor(surveyor);
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

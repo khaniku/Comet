@@ -61,16 +61,16 @@ public class User extends DateAudit {
     private Set<Role> roles = new HashSet<>();
 
     @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "requester")
-    private Survey requester;
+    private Set<Survey> requester;
 
     @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "surveyor")
-    private Survey surveyor;
+    private Set<Survey> surveyor;
 
     public User() {
 
