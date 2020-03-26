@@ -20,18 +20,14 @@ const store = createStore(persistedReducer, applyMiddleware(thunk));
 let persistor = persistStore(store);
 
 function App() {
-    return ( <
-        Provider store = { store } >
-        <
-        PersistGate persistor = { persistor } >
-        <
-        Router history = { history } >
-        <
-        Routes / >
-        <
-        /Router> <
-        /PersistGate> <
-        /Provider>
+    return (
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+            <Router history={history}>
+                <Routes />
+            </Router>
+            </PersistGate>
+        </Provider>
     );
 }
 
