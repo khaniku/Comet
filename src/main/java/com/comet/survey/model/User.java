@@ -1,5 +1,8 @@
 package com.comet.survey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
@@ -57,6 +60,18 @@ public class User extends DateAudit {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    @JsonBackReference
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "requester")
+    private Survey requester;
+
+    @JsonBackReference
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "surveyor")
+    private Survey surveyor;
+
     public User() {
 
     }
@@ -66,6 +81,16 @@ public class User extends DateAudit {
         this.lastName = lastName;
         this.username = username;
         this.email = email;
+        this.password = password;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+
+    @JsonProperty
+    public void setPassword(String password) {
         this.password = password;
     }
 

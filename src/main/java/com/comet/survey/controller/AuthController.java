@@ -19,15 +19,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Collections;
+import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -61,7 +60,15 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+        String usernameOrEmail = loginRequest.getUsernameOrEmail();
+        Optional<User> user;
+        user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail);
+        User userDetails = new User();
+        if(user.isPresent()){
+            userDetails = user.get();
+        }
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt, userDetails.getId(), userDetails.getUsername(),
+                userDetails.getEmail(), userDetails.getFirstName(),userDetails.getLastName(), authentication.getAuthorities()));
     }
 
     @PostMapping("/signup")
@@ -82,8 +89,8 @@ public class AuthController {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        Role userRole = roleRepository.findByName(RoleName.Manager)
-                .orElseThrow(() -> new AppException("User Role not set."));
+        Role userRole = roleRepository.findByName(signUpRequest.getRole())
+               .orElseThrow(() -> new AppException("User Role not set."));
 
         user.setRoles(Collections.singleton(userRole));
 
