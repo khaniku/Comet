@@ -72,6 +72,12 @@ public class User extends DateAudit {
             mappedBy = "surveyor")
     private Set<Survey> surveyor;
 
+    @JsonBackReference
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "userId")
+    private Set<PushToken> userDevice;
+
     public User() {
 
     }
