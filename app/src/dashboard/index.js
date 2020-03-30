@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component {
                     <a href="https://www.cometsigns.com/"><img src={cometLogo} target="_blank" alt="comet signs logo" /></a>
                 </nav>
                 <header>
-                    <h1>Search Template Instances</h1>
+                    <h1>Search Survey Instances</h1>
                 </header>
                 <div id="right-panel">
                     <label htmlFor="name-search">Name: </label>
@@ -45,7 +45,7 @@ export default class Dashboard extends React.Component {
                                 <td><input className={styling.button} type="button" value="view" /></td>
                                 <td>
                                     <form action="" method="post">
-                                        <button className={styling.button} id="delete-button" name="action" value="delete" onClick="return confirm('Are you sure you want to delete this template?');">delete</button>
+                                        <button className={styling.button} id="delete-button" name="action" value="delete" onClick={(item) => { if (window.confirm('Are you sure you sure you want to delete this survey')) { this.deleteItem(item) } else { this.onCancel(item) } }}>delete</button>
 
                                         <input type="hidden" name="" value="" />
                                     </form>
