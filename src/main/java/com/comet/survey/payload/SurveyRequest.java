@@ -8,15 +8,14 @@ import javax.validation.constraints.*;
 @Data
 public class SurveyRequest {
 
-    @NotNull(message = "Please choose a surveyor")
     private long surveyor;
 
-    @NotNull
     @Size(min = 1, max = 70)
     private String customerName;
 
-    @NotNull
     @Size(min = 1, max = 70)
     private String siteAddress;
+
+    private long surveyId;
 
 }
