@@ -23,7 +23,7 @@ export default class ButtonPanel extends React.Component {
         siteAddress : '', 
         customerName : '',
         customerEmail : '',
-        assets: data
+     
      
     }
     //this._checkLogin();
@@ -64,53 +64,13 @@ export default class ButtonPanel extends React.Component {
         <input className="input" type="address" value={this.state.value}  onChange={(e) => this.handleCustomerNameChange(e)}  required /><span id="site address required"> *</span>
       </div>
       <div id="i3bkc" class="form-group">
-        <label id="iyopf" class="label">Customer email (Optional)</label>
+        <label id="iyopf" class="label">Customer email </label>
         <input className="input" type="address" value={this.state.value}  onChange={(e) => this.handleCustomerEmailChange(e)}  required /><span id="site address required"> *</span>
       </div>
-      <div id="iekyo" class="form-group">
-        <label id="ihead" class="label">Asset 1</label>
    
-        <div id="i7mgj">
-          <div class="form-group">
-            <label class="label">Message</label>
-            <textarea name="message" class="textarea"></textarea>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="label">Message</label>
-          <textarea name="message" class="textarea"></textarea>
-        </div>
-        
-      </div>
      
-      <div id="i8iul" class="form-group">
-        <label id="i5lk5" class="label">Asset 2</label>
-        <div id="icwu2">
-          <div class="form-group">
-            <label class="label">Message</label>
-            <textarea name="message" class="textarea"></textarea>
-          </div>
-        </div>
-        <div id="i49ui">
-          <div class="form-group">
-            <label class="label">Message</label>
-            <textarea name="message" class="textarea"></textarea>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="label">Message</label>
-          <textarea name="message" class="textarea"></textarea>
-        </div>
-        <div id="ifm9c">
-        </div>
-      </div>
+   
 
-      <div id="ijnh2" class="form-group">
-      
-        <button type="submit" id="ivfmj" class="button">Assign to Surveyor</button>
-      
-     
-      </div>
       <div id="igfc3" class="form-group">
         <button type="submit" id="ivfmj" class="button">Create Survey</button>
       </div>

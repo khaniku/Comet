@@ -8,6 +8,7 @@ import Dashboard from '../dashboard';
 import SignUp from '../auth/signup.js';
 import createSurvey from '../surveys/createSurvey';
 import allSurvey from '../viewAllSurvey/index';
+import newSurvey from '../surveys/newSurvey';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 
@@ -18,7 +19,7 @@ class Routes extends React.Component {
             {/* <Route path="/" exact component={AuthChecker} /> */}
             <Route path="/" exact component={createSurvey} />
             
-            <Route path="/allSurvey" exact component={allSurvey} />
+            <Route path="/newSurvey" exact component={newSurvey} />
             
 
             
