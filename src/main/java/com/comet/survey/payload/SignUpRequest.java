@@ -1,10 +1,6 @@
 package com.comet.survey.payload;
 
-<<<<<<< HEAD
-
-=======
 import com.comet.survey.model.RoleName;
->>>>>>> 79e0b060b5116028218caa11d6f3a54e8b060477
 import lombok.Data;
 
 import javax.validation.constraints.*;

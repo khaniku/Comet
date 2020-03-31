@@ -33,6 +33,11 @@ public class SurveyController {
         return surveyRepository.findAll();
     }
 
+    @GetMapping("/assignedSurvey")
+    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurvey assignedSurvey){
+        
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest) {
         Survey survey = new Survey(surveyRequest.getCustomerName(), surveyRequest.getSiteAddress());
