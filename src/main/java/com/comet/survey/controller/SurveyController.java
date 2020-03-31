@@ -40,21 +40,15 @@ public class SurveyController {
         return surveyRepository.findAll();
     }
 
-/*   @GetMapping("/assignedSurveys")
-    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurvey assignedSurvey) {
-//        User user = new User(userRequest.getuserId());
-//
-//        User user2 = new User(assignedSurvey.getuserId());
-//
-//        Survey survey2 = new Survey(assignedSurvey.getSurveyId());
-//
-//        Optional<User> getUserId = userRepository.findById(assignedSurvey.getUserId());
-        User userID = new User();
-        if (getUserId.isPresent()) {
-            userID = getUserId.get();
-        }
-        return assignedSurvey.findAll();
-    }*/
+   @GetMapping("/assignedSurveys")
+    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurveys assignedSurvey) {
+        User user = userRepository.findById(assignedSurvey.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", assignedSurvey.getUserId()));
+
+       List<Survey> survey = surveyRepository.findBySurveyor(user);
+       return ResponseEntity.ok(survey);
+    }
+
 
     @PostMapping("/create")
     public ResponseEntity<?> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest) {
