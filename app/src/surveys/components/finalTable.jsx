@@ -256,11 +256,22 @@ function App() {
             Filter: SelectColumnFilter,
             filter: "includes"
           },
-          <input className={styling.button} type="button" value="edit" id="edit-button" />,
-          <form action="" method="post">
-            <button className={styling.button} id="delete-button" name="action" value="delete" onClick={(item) => { if (window.confirm('Are you sure you sure you want to delete this survey')) { this.deleteItem(item) } else { this.onCancel(item) } }}>delete</button>
-            <input type="hidden" name="" value="" />
-          </form>
+					{
+					  width: fit-content,
+						Header: '',
+					  accessor: 'edit',
+						Cell: () => (
+						  <button className={styling.button} id="edit-button" name="action" value="edit">edit</button>
+            )
+					},
+					{
+					  width: fit-content,
+						Header: '',
+					  accessor: 'delete',
+						Cell: () => (
+						  <button className={styling.button} id="delete-button" name="action" value="delete" onClick={(item) => { if (window.confirm('Are you sure you sure you want to delete this survey')) { this.deleteItem(item) } else { this.onCancel(item) } }}>delete</button>
+            )
+					}
         ]
       }
     ],
