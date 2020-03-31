@@ -12,7 +12,7 @@ $(document).on("click", "#edit-button", function() {
 		if (tableRow.id !== '#edit-button' && tableRow.id !== '#delete-button') {
 			tds.prop('contenteditable', true);
 
-			var table = document.getElementById('POBox');
+			var table = document.getElementById('');
 			rowNumber = tableRow.closest('tr').index();
 
 			if (rowNumber > 0)
@@ -37,19 +37,19 @@ $(document).on("click", "#edit-button", function() {
 			var value 	= (element.tagName === 'TR') ? $(this).val() : $(this).text();
 
 			switch (column) {
-				case 'po_box_id_seq':
+				case '':
 					dict.po_box_id_seq = value;
 					break;
-				case 'box_number':
+				case '':
 					dict.box_number = value;
 					break;
-				case 'mail_name':
+				case '':
 					dict.mail_name = value;
 					break;
-				case 'dept_code':
+				case '':
 					dict.dept_code = value;
 					break;
-				case 'dept_name':
+				case '':
 					dict.dept_name = value;
 					break;
 			}
@@ -59,7 +59,7 @@ $(document).on("click", "#edit-button", function() {
 		tds.prop('contenteditable', false);
 
 		$.ajax({
-			url: "index.php?action=edit",
+			url: "",
 			method: "POST",
 			data: dict,
 
@@ -67,11 +67,11 @@ $(document).on("click", "#edit-button", function() {
 				if (response === 'success')
 					alert('Row updated.');
 				else
-					alert('Error occurred while updating row. Contact IT@Sam Service Desk if issue persists.');
+					alert('Error occurred while updating row.');
 			},
 
 			error: function(jqXHR, textStatus, errorThrown) {
-				alert(`Row failed to update. ${textStatus}-${jqXHR}-${errorThrown}. Contact IT@Sam Service Desk if issue persists.`);
+				alert(`Row failed to update. ${textStatus}-${jqXHR}-${errorThrown}.`);
 			}
 		});
 	}
