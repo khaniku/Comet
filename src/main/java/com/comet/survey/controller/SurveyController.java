@@ -1,10 +1,12 @@
 package com.comet.survey.controller;
 
+import com.comet.survey.model.PushToken;
 import com.comet.survey.model.Survey;
 import com.comet.survey.model.User;
 import com.comet.survey.payload.ApiResponse;
 import com.comet.survey.payload.SurveyRequest;
 import com.comet.survey.payload.UserRequest;
+import com.comet.survey.repository.PushTokenRepository;
 import com.comet.survey.repository.SurveyRepository;
 import com.comet.survey.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class SurveyController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    PushTokenRepository pushTokenRepository;
+
     @GetMapping("/index")
     public List<Survey> allSurveys() {
         return surveyRepository.findAll();
@@ -48,6 +53,11 @@ public class SurveyController {
             surveyor = getSurveyor.get();
         }
         survey.setSurveyor(surveyor);
+
+        List<PushToken> pushTokens =  pushTokenRepository.findByUserIdId(surveyor.getId());
+
+        PushToken token = new PushToken();
+        token.sendNotifications(pushTokens, surveyRequest.getCustomerName());
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
