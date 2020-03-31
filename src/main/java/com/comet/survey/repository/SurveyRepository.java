@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
     Optional<Survey> findByCustomerName(String name);
     Optional<Survey> findById(long id);
+    Optional<Survey> findBySurveyor(long id);
 }
