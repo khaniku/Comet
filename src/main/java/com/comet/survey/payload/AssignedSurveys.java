@@ -7,8 +7,6 @@ import javax.validation.constraints.Size;
 
 @Data
 public class AssignedSurveys {
-    @NotNull
-    private long surveyId;
 
     @NotNull
     private long userId;
