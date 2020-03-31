@@ -9,6 +9,8 @@ import {
   useRowSelect
 } from "react-table";
 
+import styling from '../../css/survey.css'
+
 import makeData from "./makeData";
 //import getData from "./getData";
 
@@ -253,7 +255,23 @@ function App() {
             accessor: "status",
             Filter: SelectColumnFilter,
             filter: "includes"
-          }
+          },
+					{
+					  width: 'fit-content',
+						Header: '',
+					  accessor: 'edit',
+						Cell: () => (
+						  <button className={styling.button} id="edit-button" name="action" value="edit">edit</button>
+            )
+					},
+					{
+					  width: 'fit-content',
+						Header: '',
+					  accessor: 'delete',
+						Cell: () => (
+						  <button className={styling.button} id="delete-button" name="action" value="delete" onClick={(item) => { if (window.confirm('Are you sure you sure you want to delete this survey')) { this.deleteItem(item) } else { this.onCancel(item) } }}>delete</button>
+            )
+					}
         ]
       }
     ],
@@ -266,7 +284,7 @@ function App() {
 
   return (
     <div>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data} id="surveys" />
     </div>
   );
 }
