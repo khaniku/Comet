@@ -15,7 +15,8 @@ class AuthChecker extends React.Component {
    */
   _bootstrapAsync = async () => {
     let accessToken = localStorage.getItem('accessToken')
-    this.props.history.push(accessToken ? "/dashboard": "/login");
+    this.props.history.push(accessToken ? "/surveys/components/page": "/login");
+    //this.props.history.push(accessToken ? "/dashboard": "/login");
     if(await this.props.accessToken == null){
         localStorage.removeItem('accessToken');
         this.props.history.push("/login")

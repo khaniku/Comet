@@ -23,7 +23,8 @@ class Login extends React.Component {
 
   _checkLogin() {
       if(this.props.isLoggedIn){
-        this.props.history.push("/dashboard");
+        this.props.history.push("/surveys/components/page");
+        // this.props.history.push("/dashboard");
       }
   }
 
@@ -92,7 +93,7 @@ class Login extends React.Component {
      * @method
     */
     async loginUser() {
-        await fetch("http://localhost:5000/api/auth/signin", {
+        await fetch("http://159.203.100.198:5000/api/auth/signin", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -108,7 +109,8 @@ class Login extends React.Component {
             response.json().then(responseJson => {
                 localStorage.setItem('accessToken', responseJson.accessToken);
                 this.props.Auth(responseJson.accessToken);
-                this.props.history.push("/dashboard");
+                this.props.history.push("/surveys/components/page");
+                // this.props.history.push("/dashboard");
             });
         }else{
             this.setState({loading: false})
