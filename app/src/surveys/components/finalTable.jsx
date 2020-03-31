@@ -257,7 +257,7 @@ function App() {
             filter: "includes"
           },
 					{
-					  width: fit-content,
+					  width: 'fit-content',
 						Header: '',
 					  accessor: 'edit',
 						Cell: () => (
@@ -265,7 +265,7 @@ function App() {
             )
 					},
 					{
-					  width: fit-content,
+					  width: 'fit-content',
 						Header: '',
 					  accessor: 'delete',
 						Cell: () => (
