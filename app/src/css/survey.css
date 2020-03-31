@@ -1,0 +1,36 @@
+table {
+    font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 1em;
+    background-color: transparent;
+    border-spacing: 2px;
+    line-height: 1.5;
+    padding: 0;
+}
+
+th {
+    font-weight: bold;
+    font-size: medium;
+    text-align: justify;
+    background-color: #996600;
+}
+
+th:hover, tr:hover {
+    background: #ffe0b3;
+}
+
+td {
+    border: 1px solid black;
+}
+
+tbody {
+    background-color: #eff5f5;
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}

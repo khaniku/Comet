@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './signup.scss'; 
+//import styles from './signup.scss'; 
 import Select from 'react-select';
 
 const options = [
@@ -86,7 +86,7 @@ export default class SignUp extends React.Component {
  }
 
  async signUp(formData) {
-    await fetch("http://localhost:5000/api/auth/signup", {
+    await fetch("http://159.203.100.198:5000/api/auth/signup", {
         method: 'POST',
         headers: {
             Accept: 'application/json',

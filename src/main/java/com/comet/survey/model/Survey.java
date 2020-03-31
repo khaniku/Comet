@@ -17,12 +17,12 @@ public class Survey extends DateAudit{
     private Long id;
 
     @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "requester_id", referencedColumnName = "id")
     private User requester;
 
     @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "surveyor_id", referencedColumnName = "id")
     private User surveyor;
 

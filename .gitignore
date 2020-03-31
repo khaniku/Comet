@@ -29,3 +29,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore babel/react dependencies -> Nnamdi
+/*/node_modules/
+#/*/package.json
+/*/yarn.lock
+
+# Ignore debug file
+/*/npm-debug.log
+node_modules
+node_modules
