@@ -34,12 +34,3 @@ tbody {
     height: 100%;
     border-radius: 2px;
 }
-
-#grouping {
-    width: 400px;
-}
-
-#search-button {
-    float: left;
-    margin-right: 10px;
-}

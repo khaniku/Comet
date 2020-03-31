@@ -12,16 +12,16 @@ $(document).on("click", "#edit-button", function() {
 		if (tableRow.id !== '#edit-button' && tableRow.id !== '#delete-button') {
 			tds.prop('contenteditable', true);
 
-			var table = document.getElementById('');
+			var table = document.getElementById('surveys');
 			rowNumber = tableRow.closest('tr').index();
 
 			if (rowNumber > 0)
-				document.getElementsByTagName('tr')[rowNumber].cells[4].contentEditable = false;
+				document.getElementsByTagName('tr')[rowNumber].cells[1].contentEditable = false;
 
 			for (var i = 1; i < table.rows.length; i++) {
 				table.rows[i].onmousedown = function() {
 					rowNumber = $(this).parent().index();
-					document.getElementsByTagName('tr')[rowNumber].cells[4].contentEditable = false;
+					document.getElementsByTagName('tr')[rowNumber].cells[1].contentEditable = false;
 				}
 			}
 		}
@@ -37,20 +37,17 @@ $(document).on("click", "#edit-button", function() {
 			var value 	= (element.tagName === 'TR') ? $(this).val() : $(this).text();
 
 			switch (column) {
-				case '':
-					dict.po_box_id_seq = value;
+				case 'surveyID':
+					dict.surveyID = value;
 					break;
-				case '':
-					dict.box_number = value;
+				case 'surveyLocation':
+					dict.surveyLocation = value;
 					break;
-				case '':
-					dict.mail_name = value;
+				case 'clientName':
+					dict.clientName = value;
 					break;
-				case '':
-					dict.dept_code = value;
-					break;
-				case '':
-					dict.dept_name = value;
+				case 'status':
+					dict.status = value;
 					break;
 			}
 		});
@@ -59,7 +56,7 @@ $(document).on("click", "#edit-button", function() {
 		tds.prop('contenteditable', false);
 
 		$.ajax({
-			url: "",
+			url: "http://159.203.100.198:5000/api/auth/",
 			method: "POST",
 			data: dict,
 
