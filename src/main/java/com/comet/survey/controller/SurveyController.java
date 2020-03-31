@@ -38,10 +38,21 @@ public class SurveyController {
         return surveyRepository.findAll();
     }
 
-    @GetMapping("/assignedSurvey")
-    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurvey assignedSurvey){
-        
-    }
+/*   @GetMapping("/assignedSurveys")
+    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurvey assignedSurvey) {
+//        User user = new User(userRequest.getuserId());
+//
+//        User user2 = new User(assignedSurvey.getuserId());
+//
+//        Survey survey2 = new Survey(assignedSurvey.getSurveyId());
+//
+//        Optional<User> getUserId = userRepository.findById(assignedSurvey.getUserId());
+        User userID = new User();
+        if (getUserId.isPresent()) {
+            userID = getUserId.get();
+        }
+        return assignedSurvey.findAll();
+    }*/
 
     @PostMapping("/create")
     public ResponseEntity<?> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest) {
@@ -49,8 +60,8 @@ public class SurveyController {
 
         Optional<User> getSurveyor = userRepository.findById(surveyRequest.getSurveyor());
         User surveyor = new User();
-        if(getSurveyor.isPresent()){
-            surveyor = getSurveyor.get();
+            if(getSurveyor.isPresent()){
+                surveyor = getSurveyor.get();
         }
         survey.setSurveyor(surveyor);
 
