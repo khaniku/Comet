@@ -40,6 +40,16 @@ public class SurveyController {
         return surveyRepository.findAll();
     }
 
+   @GetMapping("/assignedSurveys")
+    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurveys assignedSurvey) {
+        User user = userRepository.findById(assignedSurvey.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", assignedSurvey.getUserId()));
+
+       List<Survey> survey = surveyRepository.findBySurveyor(user);
+       return ResponseEntity.ok(survey);
+    }
+
+
     @PostMapping("/create")
     public ResponseEntity<?> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest) {
         Survey survey = new Survey(surveyRequest.getCustomerName(), surveyRequest.getSiteAddress(), surveyRequest.getDueDate());
