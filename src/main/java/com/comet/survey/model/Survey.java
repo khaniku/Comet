@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 @Data
 @Entity
@@ -25,6 +26,9 @@ public class Survey extends DateAudit{
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "surveyor_id", referencedColumnName = "id")
     private User surveyor;
+
+    @Temporal(TemporalType.DATE)
+    private Date dueDate;
 
     @NotBlank
     private String customerName;
