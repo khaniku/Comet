@@ -11,7 +11,6 @@ import javax.validation.constraints.Size;
 @Data
 public class UserRequest {
 
-    @NotNull(message = "Please enter id")
     private long userId;
 
     @Size(min = 1, max = 40)

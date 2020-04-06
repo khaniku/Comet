@@ -1,9 +1,11 @@
 package com.comet.survey.controller;
 
+import com.comet.survey.exception.ResourceNotFoundException;
 import com.comet.survey.model.PushToken;
 import com.comet.survey.model.Survey;
 import com.comet.survey.model.User;
 import com.comet.survey.payload.ApiResponse;
+import com.comet.survey.payload.AssignedSurveys;
 import com.comet.survey.payload.SurveyRequest;
 import com.comet.survey.payload.UserRequest;
 import com.comet.survey.repository.PushTokenRepository;
@@ -38,9 +40,19 @@ public class SurveyController {
         return surveyRepository.findAll();
     }
 
+   @GetMapping("/assignedSurveys")
+    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurveys assignedSurvey) {
+        User user = userRepository.findById(assignedSurvey.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", assignedSurvey.getUserId()));
+
+       List<Survey> survey = surveyRepository.findBySurveyor(user);
+       return ResponseEntity.ok(survey);
+    }
+
+
     @PostMapping("/create")
     public ResponseEntity<?> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest) {
-        Survey survey = new Survey(surveyRequest.getCustomerName(), surveyRequest.getSiteAddress());
+        Survey survey = new Survey(surveyRequest.getCustomerName(), surveyRequest.getSiteAddress(), surveyRequest.getDueDate());
 
         Optional<User> getSurveyor = userRepository.findById(surveyRequest.getSurveyor());
         User surveyor = new User();

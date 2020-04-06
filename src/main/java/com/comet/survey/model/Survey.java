@@ -1,4 +1,5 @@
 package com.comet.survey.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -7,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 @Data
 @Entity
@@ -26,6 +28,10 @@ public class Survey extends DateAudit{
     @JoinColumn(name = "surveyor_id", referencedColumnName = "id")
     private User surveyor;
 
+    @JsonFormat(pattern="dd MMMM yyyy")
+    @Temporal(TemporalType.DATE)
+    private Date dueDate;
+
     @NotBlank
     private String customerName;
 
@@ -36,9 +42,10 @@ public class Survey extends DateAudit{
 
     }
 
-    public Survey (String customerName, String siteAddress) {
+    public Survey (String customerName, String siteAddress, Date dueDate) {
         this.customerName = customerName;
         this.siteAddress = siteAddress;
+        this.dueDate = dueDate;
     }
 
 }
