@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   useTable,
   usePagination,
@@ -13,8 +13,7 @@ import styling from '../../css/survey.css'
 
 //import makeData from "./makeData";
 //import getData from "./getData";
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+//import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter }
@@ -280,40 +279,29 @@ function App() {
     []
   );
 
-  function getSurveys() {
+  function GetSurveys() {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
   
-    useEffect(() => {
-      fetch('159.203.100.198:5000/api/survey/assignedSurveys')
-        .then((response) => response.json())
-        .then((json) => setData(json.movies))
-        .catch((error) => console.error(error))
-        .finally(() => setLoading(false));
-    });
   
     return (
-      <View style={{ flex: 1, padding: 24 }}>
-        {isLoading ? <ActivityIndicator/> : (
-          <FlatList
-            data={data}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-              <Text>{item.title}, {item.releaseYear}</Text>
-            )}
-          />
-        )}
-      </View>
+        useEffect(() => {
+          fetch('http://159.203.100.198:5000/api/survey/assignedSurveys')
+          .then((response) => response.json())
+          .then((json) => setData(json.movies))
+          .catch((error) => console.error(error))
+          .finally(() => setLoading(false));
+        })
     );
-  };
+  }
 
   //const [data] = React.useState(() => makeData(10000));
 
-  React.useEffect(() => {}, [data]);
+  // React.useEffect(() => {}, [data]);
 
   return (
     <div>
-      <Table columns={columns} data={getSurveys} id="surveys" />
+      <Table columns={columns} data={GetSurveys} id="surveys" />
     </div>
   );
 }
