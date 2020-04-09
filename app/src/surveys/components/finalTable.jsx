@@ -280,35 +280,35 @@ function App() {
     []
   );
 
-  //function GetSurveys() {
+  function GetSurveys() {
     const [isLoading, setLoading] = useState(true);
-    const [setData] = useState([]);
+    const [data, setData] = useState([]);
   
     const auth = useSelector(state => state.auth);
 
-        useEffect(() => {
-          return fetch('http://localhost:5000/api/survey/index', {
-          method: 'GET',
-          headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer '+auth.accessToken
-          }
+    //return 
+        //useEffect(() => {
+          return fetch('http://159.203.100.198:5000/api/survey/index', {
+		    method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer '+auth.accessToken
+		  	}
 		  }) 
           .then((response) => response.json())
           .then((json) => setData(json))
           .catch((error) => console.error(error))
           .finally(() => setLoading(false))
-        })
-
-  console.log(setData)
+        //})
+  }
 
 	// GetSurveys().then(function(value){
 	// 	console.log(value);
 	// })
 
   const [data] = React.useState(() => makeData(10000));
-   //React.useEffect(() => {}, [data]);
+   React.useEffect(() => {}, [data]);
 
   return (
     <div>
