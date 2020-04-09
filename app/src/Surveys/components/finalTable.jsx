@@ -280,6 +280,9 @@ function App() {
   );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
   const [data] = React.useState(() => makeData(10000));
 
   React.useEffect(() => {}, [data]);

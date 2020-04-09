@@ -9,10 +9,14 @@ import {
   useExpanded,
   useRowSelect
 } from "react-table";
-
 import styling from '../../css/survey.css'
+<<<<<<< HEAD
 
 //import makeData from "./makeData";
+=======
+import makeData from "./makeData";
+import {getSurveys} from '../../actions/api';
+>>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
 //import getData from "./getData";
 
 function DefaultColumnFilter({
@@ -280,6 +284,7 @@ function App() {
   );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [data] = React.useState(() => makeData(10000));
 
   React.useEffect(() => {}, [data]);
@@ -312,11 +317,36 @@ function App() {
 		'Test'
 	)
   }
+=======
+  // function GetSurveys() {
+  //   const [isLoading, setLoading] = useState(true);
+  //   const [data, setData] = useState([]);
+  
+  //   const auth = useSelector(state => state.auth);
+
+    //return 
+  //       useEffect(() => {
+  //         return fetch('http://159.203.100.198:5000/api/survey/index', {
+	// 	    method: 'GET',
+	// 		headers: {
+	// 			Accept: 'application/json',
+	// 			'Content-Type': 'application/json',
+	// 			Authorization: 'Bearer '+auth.accessToken
+	// 	  	}
+	// 	  }) 
+  //         .then((response) => response.json())
+  //         .then((json) => setData(json))
+  //         .catch((error) => console.error(error))
+  //         .finally(() => setLoading(false))
+  //       })
+  // }
+>>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
 
 	/*GetSurveys().then(function(value) {
 		console.log(value);
 	})*/
 
+<<<<<<< HEAD
   console.log('Surveys: ' + GetSurveys());
 
   /*const [data] = React.useState(() => makeData(10000));
@@ -330,6 +360,24 @@ function App() {
 		  {/* <Table columns={columns} data={data} id="surveys" /> */}
 		  {/* <Table columns={columns} data={data} id="surveys" /> */}
 >>>>>>> 91103b72eb5f0a838f8cef247d2987dff97694ce
+=======
+  const [data] = React.useState(() => makeData(10000));
+  const [isLoading, setLoading] = useState(true);
+  const [surveys, setSurveys] = useState([]);
+  const auth = useSelector(state => state.auth);
+
+   useEffect(() => {
+       getSurveys(auth.accessToken).then(function (responseJson) {
+        setSurveys(responseJson)
+        setLoading(false);
+      })
+   }, [data]);
+
+  return (
+    <div>
+		  <Table columns={columns} data={surveys} id="surveys" />
+		  {/* <Table columns={columns} data={data} id="surveys" /> */}
+>>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
     </div>
   );
 }
