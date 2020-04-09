@@ -285,29 +285,28 @@ function App() {
     const [data, setData] = useState([]);
   
     const auth = useSelector(state => state.auth);
-        useEffect(() => {
-          fetch('http://159.203.100.198:5000/api/survey/index', {
-		    method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				Authorization: 'Bearer '+auth.accessToken
-		  	}
-		  }) 
-          .then((response) => response.json())
-          .then((json) => setData(json.firstName))
-          .catch((error) => console.error(error))
-          //.finally(() => setLoading(false))
+
+    useEffect(() => {
+      fetch('http://159.203.100.198:5000/api/survey/index', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + auth.accessToken
+        }
+      })
+        .then((response) => {
+          if (response.ok) {
+            setData(response.data)
+          }
         })
+        .catch((error) => console.error(error))
+    })
 
     return (
-		'Test'
-	)
+      'Test'
+    )
   }
-
-	/*GetSurveys().then(function(value) {
-		console.log(value);
-	})*/
 
   console.log('Surveys: ' + GetSurveys());
 
