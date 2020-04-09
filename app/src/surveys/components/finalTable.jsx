@@ -288,7 +288,7 @@ function App() {
 
     return (
         useEffect(() => {
-          return fetch('http://159.203.100.198:5000/api/survey/index', {
+          fetch('http://159.203.100.198:5000/api/survey/index', {
 		    method: 'GET',
 			headers: {
 				Accept: 'application/json',
@@ -304,9 +304,11 @@ function App() {
 	)
   }
 
-	GetSurveys().then(function(value) {
+	/*GetSurveys().then(function(value) {
 		console.log(value);
-	})
+	})*/
+
+  console.log('Surveys: ' + GetSurveys());
 
   /*const [data] = React.useState(() => makeData(10000));
   React.useEffect(() => {}, [data]);*/
