@@ -281,12 +281,10 @@ function App() {
   );
 
   function GetSurveys() {
-    const [isLoading, setLoading] = useState(true);
+    //const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
   
     const auth = useSelector(state => state.auth);
-
-    return (
         useEffect(() => {
           fetch('http://159.203.100.198:5000/api/survey/index', {
 		    method: 'GET',
@@ -297,20 +295,19 @@ function App() {
 		  	}
 		  }) 
           .then((response) => response.json())
-          .then((json) => setData(json))
+          .then((json) => setData(json.firstName))
           .catch((error) => console.error(error))
-          .finally(() => setLoading(false))
+          //.finally(() => setLoading(false))
         })
+
+    return (
+		'Test'
 	)
   }
 
 	/*GetSurveys().then(function(value) {
 		console.log(value);
 	})*/
-
-	// GetSurveys().then(function(value){
-	// 	console.log(value);
-	// })
 
   console.log('Surveys: ' + GetSurveys());
 
