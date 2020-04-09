@@ -10,6 +10,7 @@ import {
   useRowSelect
 } from "react-table";
 import styling from '../../css/survey.css'
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 
 //import makeData from "./makeData";
@@ -17,6 +18,10 @@ import styling from '../../css/survey.css'
 import makeData from "./makeData";
 import {getSurveys} from '../../actions/api';
 >>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
+=======
+import makeData from "./makeData";
+import {getSurveys} from '../../actions/api';
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
 //import getData from "./getData";
 
 function DefaultColumnFilter({
@@ -283,6 +288,7 @@ function App() {
     []
   );
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 <<<<<<< HEAD
   const [data] = React.useState(() => makeData(10000));
@@ -296,9 +302,15 @@ function App() {
   function GetSurveys() {
     //const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+=======
+  // function GetSurveys() {
+  //   const [isLoading, setLoading] = useState(true);
+  //   const [data, setData] = useState([]);
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
   
     const auth = useSelector(state => state.auth);
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
     useEffect(() => {
       fetch('http://159.203.100.198:5000/api/survey/index', {
         method: 'GET',
@@ -327,6 +339,8 @@ function App() {
   
   //   const auth = useSelector(state => state.auth);
 
+=======
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
     //return 
   //       useEffect(() => {
   //         return fetch('http://159.203.100.198:5000/api/survey/index', {
@@ -343,6 +357,7 @@ function App() {
   //         .finally(() => setLoading(false))
   //       })
   // }
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 >>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
 
 <<<<<<< HEAD:app/src/surveys/components/finalTable.jsx
@@ -354,10 +369,14 @@ function App() {
 =======
 >>>>>>> 721b47acf3b06d1dafe49427cecdf1638da2354b:app/src/surveys/components/finalTable_previous.jsx
   console.log('Surveys: ' + GetSurveys());
+=======
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
 
-  /*const [data] = React.useState(() => makeData(10000));
-  React.useEffect(() => {}, [data]);*/
+	// GetSurveys().then(function(value){
+	// 	console.log(value);
+	// })
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
   //const [data] = React.useState(() => GetSurveys());
   // React.useEffect(() => {}, [data]);
 
@@ -367,6 +386,8 @@ function App() {
 		  {/* <Table columns={columns} data={data} id="surveys" /> */}
 >>>>>>> 91103b72eb5f0a838f8cef247d2987dff97694ce
 =======
+=======
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
   const [data] = React.useState(() => makeData(10000));
   const [isLoading, setLoading] = useState(true);
   const [surveys, setSurveys] = useState([]);

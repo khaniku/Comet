@@ -10,6 +10,7 @@ import {
   useRowSelect
 } from "react-table";
 import styling from '../../css/survey.css'
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 
 //import makeData from "./makeData";
@@ -17,6 +18,10 @@ import styling from '../../css/survey.css'
 import makeData from "./makeData";
 import {getSurveys} from '../../actions/api';
 >>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
+=======
+import makeData from "./makeData";
+import {getSurveys} from '../../actions/api';
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
 //import getData from "./getData";
 
 function DefaultColumnFilter({
@@ -283,6 +288,7 @@ function App() {
     []
   );
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 <<<<<<< HEAD
   const [data] = React.useState(() => makeData(10000));
@@ -296,26 +302,35 @@ function App() {
   function GetSurveys() {
     //const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+=======
+  // function GetSurveys() {
+  //   const [isLoading, setLoading] = useState(true);
+  //   const [data, setData] = useState([]);
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
   
     const auth = useSelector(state => state.auth);
-        useEffect(() => {
-          fetch('http://159.203.100.198:5000/api/survey/index', {
-		    method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				Authorization: 'Bearer '+auth.accessToken
-		  	}
-		  }) 
-          .then((response) => response.json())
-          .then((json) => setData(json.firstName))
-          .catch((error) => console.error(error))
-          //.finally(() => setLoading(false))
+
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
+    useEffect(() => {
+      fetch('http://159.203.100.198:5000/api/survey/index', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + auth.accessToken
+        }
+      })
+        .then((response) => {
+          if (response.ok) {
+            setData(response.data)
+          }
         })
+        .catch((error) => console.error(error))
+    })
 
     return (
-		'Test'
-	)
+      'Test'
+    )
   }
 =======
   // function GetSurveys() {
@@ -346,6 +361,7 @@ function App() {
 		console.log(value);
 	})*/
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
   console.log('Surveys: ' + GetSurveys());
 
