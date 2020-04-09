@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonPanel from './Components/ButtonPanel';
+
 import {Link} from "react-router-dom";
 
 
@@ -37,24 +37,9 @@ export default class createSurvey extends React.Component {
 
             <button id="button" ><Link to="/AddPicture">Add Picture</Link></button>
 
-            <button id="button" ><Link to="/measurement">Add Measurement</Link></button>
-
-
-            
-
-    
+            <button id="button" ><Link to="/measurement">Add Measurement</Link></button>    
           </h1>
-          
-   
-      <div id="dataEntry" class="column">
-      
-      
-      </div>
-  
     </div>
-   
-   
-   
       </div>
      
            

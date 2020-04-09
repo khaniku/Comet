@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./newSurvey.css";
+import {connect} from 'react-redux';
 
 
 
-export default class newSurvey extends React.Component {
+
+class newSurvey extends React.Component {
   static propTypes = {
     clickHandler: PropTypes.func,
   };
@@ -12,30 +13,46 @@ export default class newSurvey extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
-        userID : '',
+        surveyor : '',
         dueDate : '',
         siteAddress : '', 
         customerName : '',
         customerID : '',
         customerEmail : '',
-            
-     
     }
-    this.handleChange=this.handleChange.bind(this);
+
+    this.changeDueDate=this.changeDueDate.bind(this);
+    this.changeCustEmail=this.changeCustEmail.bind(this);
+    this.changeAddress=this.changeAddress.bind(this);
+    this.changeCustName=this.changeCustName.bind(this);
+    this.changeCustID=this.changeCustID.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     //this._checkLogin();
   }
 
-  handleChange(event) {
-    this.setState({siteAddress: event.target.siteAddress});
-    this.setState({customerName: event.target.customerName})
-    this.setState({customerID: event.target.customerID});
-    this.setState({customerEmail: event.target.customerEmail})
-    this.setState({userID: event.target.userID});
-    this.setState({dueDate: event.target.dueDate})
-    
+  changeSurveyor(event) {
+    this.setState({surveyor: event.target.surveyor}); 
+   
+    console.log(this.state.surveyor)
   }
+  changeDueDate(event){
+    this.setState({dueDate: event.target.dueDate})
+  }
+  changeCustEmail(event){
+    this.setState({customerEmail: event.target.customerEmail})
+  }
+  changeCustID(event){
+    this.setState({customerID: event.target.customerID});
+  }
+  changeAddress(event){
+    this.setState({siteAddress: event.target.siteAddress});
+    console.log(this.state.siteAddress)
+  }
+  changeCustName(event){
+    this.setState({customerName: event.target.customerName})
+  }
+
+
   
 
  
@@ -43,7 +60,7 @@ export default class newSurvey extends React.Component {
     e.preventDefault();
     
     let formData = {
-    userID : this.state.userID,
+    surveyor : this.state.surveyor,
     dueDate : this.state.dueDate,    
     SiteAddress: this.state.siteAddress,
     customerName: this.state.customerName,
@@ -51,17 +68,18 @@ export default class newSurvey extends React.Component {
     customerEmail: this.state.customerEmail,
 
     }
-    if (formData.SiteAddress.length < 1 || formData.customerName.length < 1 || formData.customerID.length < 1 || formData.customerEmail.length < 1) {
-      return false
-      }
+   // if (formData.SiteAddress.length < 1 || formData.customerName.length < 1 || formData.customerID.length < 1 || formData.customerEmail.length < 1) {
+     // return false
+     // }
       this.createSurvey(formData);
   }
   async createSurvey(formData) {
-    await fetch("http://159.203.100.198:5000/api/auth/survey/SurveyController", {
+    await fetch("http://159.203.100.198:5000/api/survey/create", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + this.props.auth.accessToken
         },
         body: JSON.stringify(formData),
     })
@@ -86,51 +104,42 @@ export default class newSurvey extends React.Component {
 
   render() {
     return (
-   
         <form onSubmit={this.handleSubmit}>
-
-<label>
-            User ID: 
-            <textarea type ="text" value={this.state.userID} onChange={this.handleChange} />
+    <label>
+            Surveyor: 
+            <textarea type ="text" value={this.state.surveyor} onChange={(e) => this.changeSurveyor(e)} />
          
           </label>
           <label>
             : Due Date
-            <textarea type ="text" value={this.state.dueDate} onChange={this.handleChange} />
-         
+            <textarea type ="text" value={this.state.dueDate} onChange={this.changeDueDate} />
           </label>
           <label>
             Address: 
-            <textarea type ="text" value={this.state.siteAddress} onChange={this.handleChange} />
-         
+            <textarea type ="text" value={this.state.siteAddress} onChange={this.changeAddress} />
           </label>
-
           <label>
             Customer Name: 
-            <input type ="text" value={this.state.customerName} onChange={this.handleChange} />
-           
+            <input type ="text" value={this.state.customerName} onChange={this.changeCustName} />
           </label>
-
           <label>
             Customer ID: 
-            <input type ="text" value={this.state.customerID} onChange={this.handleChange} />
-           
+            <input type ="text" value={this.state.customerID} onChange={this.changeCustID} />
           </label>
-
           <label>
             Customer email: 
-            <input type ="text" value={this.state.customerEmail} onChange={this.handleChange} />
-            
+            <input type ="text" value={this.state.customerEmail} onChange={this.changeCustEmail} />
           </label> 
-            
           <label>
-          
             <input id='formButton' type = "submit" value = "Create Survey"  onClick={this.handleSubmit}/>   
           </label>    
       </form>
-
-        
         );
   }
 
+
 }
+const mapStateToProps = state => {
+    return {auth: state.auth}
+  }  
+  export default connect(mapStateToProps)(newSurvey);
