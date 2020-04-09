@@ -308,6 +308,10 @@ function App() {
 		console.log(value);
 	})*/
 
+	// GetSurveys().then(function(value){
+	// 	console.log(value);
+	// })
+
   console.log('Surveys: ' + GetSurveys());
 
   /*const [data] = React.useState(() => makeData(10000));
