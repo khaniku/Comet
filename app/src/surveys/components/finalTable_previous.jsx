@@ -298,24 +298,27 @@ function App() {
     const [data, setData] = useState([]);
   
     const auth = useSelector(state => state.auth);
-        useEffect(() => {
-          fetch('http://159.203.100.198:5000/api/survey/index', {
-		    method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				Authorization: 'Bearer '+auth.accessToken
-		  	}
-		  }) 
-          .then((response) => response.json())
-          .then((json) => setData(json.firstName))
-          .catch((error) => console.error(error))
-          //.finally(() => setLoading(false))
+
+    useEffect(() => {
+      fetch('http://159.203.100.198:5000/api/survey/index', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + auth.accessToken
+        }
+      })
+        .then((response) => {
+          if (response.ok) {
+            setData(response.data)
+          }
         })
+        .catch((error) => console.error(error))
+    })
 
     return (
-		'Test'
-	)
+      'Test'
+    )
   }
 =======
   // function GetSurveys() {
@@ -342,11 +345,14 @@ function App() {
   // }
 >>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable.jsx
 	/*GetSurveys().then(function(value) {
 		console.log(value);
 	})*/
 
 <<<<<<< HEAD
+=======
+>>>>>>> 721b47acf3b06d1dafe49427cecdf1638da2354b:app/src/surveys/components/finalTable_previous.jsx
   console.log('Surveys: ' + GetSurveys());
 
   /*const [data] = React.useState(() => makeData(10000));
