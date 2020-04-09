@@ -12,7 +12,7 @@ import {
 
 import styling from '../../css/survey.css'
 
-import makeData from "./makeData";
+//import makeData from "./makeData";
 //import getData from "./getData";
 
 function DefaultColumnFilter({
@@ -279,6 +279,7 @@ function App() {
     []
   );
 
+<<<<<<< HEAD
   const [data] = React.useState(() => makeData(10000));
 
   React.useEffect(() => {}, [data]);
@@ -286,6 +287,49 @@ function App() {
   return (
     <div>
       <Table columns={columns} data={data} id="surveys" />
+=======
+  function GetSurveys() {
+    //const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+  
+    const auth = useSelector(state => state.auth);
+        useEffect(() => {
+          fetch('http://159.203.100.198:5000/api/survey/index', {
+		    method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer '+auth.accessToken
+		  	}
+		  }) 
+          .then((response) => response.json())
+          .then((json) => setData(json.firstName))
+          .catch((error) => console.error(error))
+          //.finally(() => setLoading(false))
+        })
+
+    return (
+		'Test'
+	)
+  }
+
+	/*GetSurveys().then(function(value) {
+		console.log(value);
+	})*/
+
+  console.log('Surveys: ' + GetSurveys());
+
+  /*const [data] = React.useState(() => makeData(10000));
+  React.useEffect(() => {}, [data]);*/
+
+  //const [data] = React.useState(() => GetSurveys());
+  // React.useEffect(() => {}, [data]);
+
+  return (
+    <div>
+		  {/* <Table columns={columns} data={data} id="surveys" /> */}
+		  {/* <Table columns={columns} data={data} id="surveys" /> */}
+>>>>>>> 91103b72eb5f0a838f8cef247d2987dff97694ce
     </div>
   );
 }

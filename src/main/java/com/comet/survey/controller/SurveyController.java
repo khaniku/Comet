@@ -41,9 +41,9 @@ public class SurveyController {
     }
 
    @GetMapping("/assignedSurveys")
-    public ResponseEntity<?> assignedSurvey(@Valid @RequestBody AssignedSurveys assignedSurvey) {
-        User user = userRepository.findById(assignedSurvey.getUserId())
-                .orElseThrow(() -> new ResourceNotFoundException("User", "id", assignedSurvey.getUserId()));
+    public ResponseEntity<?> assignedSurvey(@RequestParam long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 
        List<Survey> survey = surveyRepository.findBySurveyor(user);
        return ResponseEntity.ok(survey);

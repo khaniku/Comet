@@ -60,12 +60,12 @@ class Login extends React.Component {
             </div>
             <p className="right_shift">Log into your account:</p>
                 {this.state.showError ? (
-                                <p class={FORMAT.right_shift}>{this.state.errorText}</p>
+                                <p className={FORMAT.right_shift}>{this.state.errorText}</p>
                 ) : null}
-                <label for="email" className="right_shift">Email: </label>
+                <label htmlFor="email" className="right_shift">Email: </label>
                 <input className="input" type="email" value={this.state.value}  onChange={(e) => this.handleUsernameChange(e)}  required /><span id="email_required"> *</span>
 
-                <label for="password" className="right_shift">Password: </label>
+                <label htmlFor="password" className="right_shift">Password: </label>
                 <input type="password" className="input" value={this.state.password} onChange={(e) => this.handlePasswordChange(e)} required /><span id={FORMAT.password_required}> *</span>
                 
                 <button id="login_button" onClick={()=> this.loginUser()}>Login</button>
@@ -75,10 +75,10 @@ class Login extends React.Component {
         <div id={FORMAT.sign_up}>
             <form action="" method="post">
                 <header>
-                    <h2 class={FORMAT.right_shift}>New User</h2>
+                    <h2 className={FORMAT.right_shift}>New User</h2>
                 </header>
                 <section>
-                    <p class={FORMAT.righ_shift}>Create new user account:</p>
+                    <p className={FORMAT.righ_shift}>Create new user account:</p>
                     <button id="button" ><Link to="/signup">Sign up</Link></button>
                 </section>
             </form>
@@ -88,12 +88,12 @@ class Login extends React.Component {
 	}
 
     /**
-     * @description API fetch request for user log in
+     * @description API fetch request htmlFor user log in
      * @async  
      * @method
     */
     async loginUser() {
-        await fetch("http://159.203.100.198:5000/api/auth/signin", {
+        await fetch("http://localhost:5000/api/auth/signin", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
