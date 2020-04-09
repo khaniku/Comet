@@ -12,7 +12,7 @@ import {
 
 import styling from '../../css/survey.css'
 
-import makeData from "./makeData";
+//import makeData from "./makeData";
 //import getData from "./getData";
 //import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
@@ -286,8 +286,8 @@ function App() {
   
     const auth = useSelector(state => state.auth);
 
-    //return 
-        //useEffect(() => {
+    return (
+        useEffect(() => {
           return fetch('http://159.203.100.198:5000/api/survey/index', {
 		    method: 'GET',
 			headers: {
@@ -300,20 +300,24 @@ function App() {
           .then((json) => setData(json))
           .catch((error) => console.error(error))
           .finally(() => setLoading(false))
-        //})
+        })
+	)
   }
 
-	GetSurveys().then(function(value){
+	GetSurveys().then(function(value) {
 		console.log(value);
 	})
 
-  const [data] = React.useState(() => makeData(10000));
-   React.useEffect(() => {}, [data]);
+  /*const [data] = React.useState(() => makeData(10000));
+  React.useEffect(() => {}, [data]);*/
+
+  //const [data] = React.useState(() => GetSurveys());
+  // React.useEffect(() => {}, [data]);
 
   return (
     <div>
-		  {/*<Table columns={columns} data={GetSurveys} id="surveys" />*/}
-		  <Table columns={columns} data={data} id="surveys" />
+		  {/* <Table columns={columns} data={data} id="surveys" /> */}
+		  {/* <Table columns={columns} data={data} id="surveys" /> */}
     </div>
   );
 }
