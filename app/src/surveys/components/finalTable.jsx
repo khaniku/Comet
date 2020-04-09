@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   useTable,
   usePagination,
@@ -13,6 +14,7 @@ import styling from '../../css/survey.css'
 
 import makeData from "./makeData";
 //import getData from "./getData";
+//import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter }
@@ -278,13 +280,40 @@ function App() {
     []
   );
 
-  const [data] = React.useState(() => makeData(10000));
+  function GetSurveys() {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+  
+    const auth = useSelector(state => state.auth);
 
-  React.useEffect(() => {}, [data]);
+    //return 
+        //useEffect(() => {
+          return fetch('http://159.203.100.198:5000/api/survey/index', {
+		    method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer '+auth.accessToken
+		  	}
+		  }) 
+          .then((response) => response.json())
+          .then((json) => setData(json))
+          .catch((error) => console.error(error))
+          .finally(() => setLoading(false))
+        //})
+  }
+
+	GetSurveys().then(function(value){
+		console.log(value);
+	})
+
+  const [data] = React.useState(() => makeData(10000));
+   React.useEffect(() => {}, [data]);
 
   return (
     <div>
-      <Table columns={columns} data={data} id="surveys" />
+		  {/*<Table columns={columns} data={GetSurveys} id="surveys" />*/}
+		  <Table columns={columns} data={data} id="surveys" />
     </div>
   );
 }
