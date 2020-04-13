@@ -339,6 +339,8 @@ function App() {
   
   //   const auth = useSelector(state => state.auth);
 
+=======
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
     //return 
   //       useEffect(() => {
   //         return fetch('http://159.203.100.198:5000/api/survey/index', {
@@ -355,19 +357,26 @@ function App() {
   //         .finally(() => setLoading(false))
   //       })
   // }
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 >>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable.jsx
 	/*GetSurveys().then(function(value) {
 		console.log(value);
 	})*/
 
-<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
+=======
+>>>>>>> 721b47acf3b06d1dafe49427cecdf1638da2354b:app/src/surveys/components/finalTable_previous.jsx
   console.log('Surveys: ' + GetSurveys());
+=======
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
 
-  /*const [data] = React.useState(() => makeData(10000));
-  React.useEffect(() => {}, [data]);*/
+	// GetSurveys().then(function(value){
+	// 	console.log(value);
+	// })
 
+<<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
   //const [data] = React.useState(() => GetSurveys());
   // React.useEffect(() => {}, [data]);
 
@@ -377,7 +386,11 @@ function App() {
 		  {/* <Table columns={columns} data={data} id="surveys" /> */}
 >>>>>>> 91103b72eb5f0a838f8cef247d2987dff97694ce
 =======
+=======
+>>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
   const [data] = React.useState(() => makeData(10000));
+=======
+>>>>>>> f8051312c62020ba1a4acb6dfbc877e7c80dd13e
   const [isLoading, setLoading] = useState(true);
   const [surveys, setSurveys] = useState([]);
   const auth = useSelector(state => state.auth);
@@ -387,13 +400,17 @@ function App() {
         setSurveys(responseJson)
         setLoading(false);
       })
-   }, [data]);
+   }, []);
 
+  console.log('Survey value -> ' + surveys);		
   return (
     <div>
 		  <Table columns={columns} data={surveys} id="surveys" />
+<<<<<<< HEAD
 		  {/* <Table columns={columns} data={data} id="surveys" /> */}
 >>>>>>> 0c021f77e47ef4ac8779a8dd19a6036d4f16fe0b
+=======
+>>>>>>> f8051312c62020ba1a4acb6dfbc877e7c80dd13e
     </div>
   );
 }
