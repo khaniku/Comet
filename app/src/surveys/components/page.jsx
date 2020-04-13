@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FinalTable from "./finalTable";
-import cometLogo from '../../image/comet-logo.png'
+import cometLogo from "../../image/comet-logo.png";
 
 class page extends Component {
   state = { search: "" };
@@ -9,7 +9,9 @@ class page extends Component {
     return (
       <div style={pageMargin}>
         <nav>
-          <a href="https://www.cometsigns.com/"><img src={cometLogo} target="_blank" alt="comet signs logo" /></a>
+          <a href="https://www.cometsigns.com/">
+            <img src={cometLogo} target="_blank" alt="comet signs logo" />
+          </a>
         </nav>
         <h1>Existing Surveys</h1>
         <div>
