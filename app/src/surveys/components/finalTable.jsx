@@ -10,6 +10,7 @@ import {
   useRowSelect
 } from "react-table";
 import styling from '../../css/survey.css'
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 

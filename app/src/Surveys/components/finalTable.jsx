@@ -10,6 +10,7 @@ import {
   useRowSelect
 } from "react-table";
 import styling from '../../css/survey.css'
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 
@@ -23,6 +24,9 @@ import makeData from "./makeData";
 import {getSurveys} from '../../actions/api';
 >>>>>>> 1fc9e03247c3779e40d3d3735eba922c3a5bc4d7:app/src/surveys/components/finalTable.jsx
 //import getData from "./getData";
+=======
+import {getSurveys} from '../../actions/api';
+>>>>>>> f8051312c62020ba1a4acb6dfbc877e7c80dd13e
 
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter }
@@ -288,6 +292,7 @@ function App() {
     []
   );
 
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/surveys/components/finalTable_previous.jsx
 <<<<<<< HEAD
 <<<<<<< HEAD
