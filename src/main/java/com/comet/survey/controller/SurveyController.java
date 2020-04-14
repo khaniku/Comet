@@ -61,7 +61,7 @@ public class SurveyController {
         }
         survey.setSurveyor(surveyor);
 
-        List<PushToken> pushTokens =  pushTokenRepository.findByUserIdId(surveyor.getId());
+        List<PushToken> pushTokens =  pushTokenRepository.findByUserId(surveyor.getId());
 
         PushToken token = new PushToken();
         token.sendNotifications(pushTokens, surveyRequest.getCustomerName());
