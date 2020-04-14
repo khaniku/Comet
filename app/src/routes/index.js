@@ -22,7 +22,7 @@ class Routes extends React.Component {
              
             <Route path="/createSurvey" exact component = {createSurvey} />
             {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
-            <AuthenticatedRoute path="/dashboard" component={Dashboard} /> 
+            <AuthenticatedRoute path="/dashboard" component={Page} /> 
         </Switch>
         );
     }

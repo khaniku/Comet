@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SiteAssetRepository extends JpaRepository<SiteAsset, Long> {
+public interface  SiteAssetRepository extends JpaRepository<SiteAsset, Long> {
     List<SiteAsset> findBySurvey(Survey survey);
 }

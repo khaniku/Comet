@@ -53,7 +53,6 @@ public class SurveyController {
     @PostMapping("/create")
     public ResponseEntity<?> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest) {
         Survey survey = new Survey(surveyRequest.getCustomerName(), surveyRequest.getSiteAddress(), surveyRequest.getDueDate());
-
         Optional<User> getSurveyor = userRepository.findById(surveyRequest.getSurveyor());
         User surveyor = new User();
         if(getSurveyor.isPresent()){
