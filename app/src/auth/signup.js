@@ -7,12 +7,12 @@ const options = [
     { value: 'Requester', label: 'Requester' },
 ];
 
-const reactFormContainer = document.querySelector('.react-form-container')
+// const reactFormContainer = document.querySelector('.react-form-container')
 
 class ReactFormLabel extends React.Component {
- constructor(props) {
+ /*constructor(props) {
   super(props)
- }
+ }*/
 
  render() {
   return(

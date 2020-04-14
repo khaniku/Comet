@@ -1,5 +1,4 @@
 let url = "http://159.203.100.198:5000";
-//let url = "http://localhost:5000";
 
 export function getSurveys(accessToken) {
     return fetch(url+"/api/survey/index", {
