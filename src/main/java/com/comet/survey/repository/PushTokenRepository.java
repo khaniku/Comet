@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface PushTokenRepository extends JpaRepository<PushToken, Long> {
-    List<PushToken> findByUserId(long userId);
+    List<PushToken> findByUserId(User user);
     Boolean existsByToken(String token);
 }

@@ -1,14 +1,12 @@
 package com.comet.survey.model;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -27,6 +25,12 @@ public class Survey extends DateAudit{
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "surveyor_id", referencedColumnName = "id")
     private User surveyor;
+
+    @JsonBackReference
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "survey")
+    private Set<SiteAsset> siteAsset;
 
     @JsonFormat(pattern="dd MMMM yyyy")
     @Temporal(TemporalType.DATE)
