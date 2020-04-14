@@ -287,7 +287,7 @@ function App() {
       })
    }, []);
 
-  console.log('Survey value -> ' + surveys);		
+  console.log(surveys);		
   return (
     <div>
 		  <Table columns={columns} data={surveys} id="surveys" />
