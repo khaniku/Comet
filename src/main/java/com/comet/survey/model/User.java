@@ -90,6 +90,12 @@ public class User extends DateAudit {
         this.password = password;
     }
 
+    //@Entity
+    public class PasswordResetToken {
+
+        private String token;
+    }
+
     @JsonIgnore
     public String getPassword() {
         return password;
