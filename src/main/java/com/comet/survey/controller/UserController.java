@@ -51,6 +51,17 @@ public class UserController {
         return userRepository.findByRoles(role);
     }
 
+    @PostMapping("/resetPassword")
+    public ResponseEntity<?> resetPassword(@RequestParam("email") String userEmail) {
+        Optional<User> findUser = userRepository.findByEmail(userEmail);
+        User user = new User();
+        if (findUser.isPresent()) {
+            user = findUser.get();
+        }
+        //check this
+        return ResponseEntity.ok(user);
+    }
+
     @PostMapping("/pushToken")
     public ResponseEntity<?> pushToken( @Valid @RequestBody PushTokenRequest pushTokenRequest) {
         if(pushTokenRepository.existsByToken(pushTokenRequest.getToken())) {
