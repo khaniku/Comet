@@ -16,17 +16,17 @@ public class Survey extends DateAudit{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonManagedReference
+    //@JsonManagedReference(value = "requester")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "requester_id", referencedColumnName = "id")
     private User requester;
 
-    @JsonManagedReference
+    //@JsonManagedReference(value = "surveyor")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "surveyor_id", referencedColumnName = "id")
     private User surveyor;
 
-    @JsonBackReference
+    @JsonBackReference(value = "assets")
     @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "survey")

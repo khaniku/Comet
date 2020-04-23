@@ -1,12 +1,12 @@
 package com.comet.survey.exception;
 
-public class StorageException extends RuntimeException {
+public class FileStorageException extends RuntimeException {
 
-    public StorageException(String message) {
+    public FileStorageException(String message) {
         super(message);
     }
 
-    public StorageException(String message, Throwable cause) {
+    public FileStorageException(String message, Throwable cause) {
         super(message, cause);
     }
 }

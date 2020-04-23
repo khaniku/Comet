@@ -3,7 +3,7 @@ package com.comet.survey.service;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "file")
-public class FileStorageService {
+public class FileStorageProperties {
     private String uploadDir;
 
     public String getUploadDir() {

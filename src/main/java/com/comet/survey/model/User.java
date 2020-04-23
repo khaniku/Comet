@@ -1,8 +1,6 @@
 package com.comet.survey.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
@@ -24,7 +22,6 @@ import java.util.HashSet;
                 "email"
         })
 })
-
 public class User extends DateAudit {
 
     @Id
@@ -60,19 +57,19 @@ public class User extends DateAudit {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    @JsonBackReference
+    @JsonBackReference(value = "requester")
     @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "requester")
     private Set<Survey> requester;
 
-    @JsonBackReference
+    @JsonBackReference(value = "surveyor")
     @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "surveyor")
     private Set<Survey> surveyor;
 
-    @JsonBackReference
+    @JsonBackReference(value = "userDevice")
     @OneToMany(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "userId")
