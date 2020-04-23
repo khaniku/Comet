@@ -150,7 +150,22 @@ function Table({ columns, data, updateMyData, skipReset }) {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+				<tbody>
+					{data.map((surveyData) => {
+					   return (
+						   <tr key={surveyData.id}>
+								 <td>&nbsp;</td>
+							   <td>{surveyData.id}</td>
+							   <td>{surveyData.siteAddress}</td>
+							   <td>{surveyData.customerName}</td>
+								 <td>&nbsp;</td>
+								 <td><button type="submit" value="Submit">delete</button></td>
+								 <td>&nbsp;</td>
+							 </tr>
+						 );
+					})}
+				</tbody>
+				{/* <tbody {...getTableBodyProps()}>
           {page.map(row => {
             prepareRow(row);
             return (
@@ -173,7 +188,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
               </tr>
             );
           })}
-        </tbody>
+        </tbody> */}
       </table>
 
       <div className="pagination">
@@ -253,7 +268,7 @@ function App() {
             accessor: "status",
             Filter: SelectColumnFilter,
             filter: "includes"
-          },
+          }/*,
 					{
 					  width: 'fit-content',
 						Header: '',
@@ -269,25 +284,22 @@ function App() {
 						Cell: () => (
 						  <button className={styling.button} id="delete-button" name="action" value="delete" onClick={(item) => { if (window.confirm('Are you sure you sure you want to delete this survey')) { this.deleteItem(item) } else { this.onCancel(item) } }}>delete</button>
             )
-					}
+					}*/
         ]
       }
     ],
     []
   );
 
-  const [isLoading, setLoading] = useState(true);
   const [surveys, setSurveys] = useState([]);
   const auth = useSelector(state => state.auth);
 
    useEffect(() => {
        getSurveys(auth.accessToken).then(function (responseJson) {
         setSurveys(responseJson)
-        setLoading(false);
       })
    }, []);
 
-  console.log(surveys);		
   return (
     <div>
 		  <Table columns={columns} data={surveys} id="surveys" />
