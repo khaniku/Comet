@@ -78,8 +78,13 @@ class Login extends React.Component {
                     <h2 className={FORMAT.right_shift}>New User</h2>
                 </header>
                 <section>
+<<<<<<< HEAD
                     <p className={FORMAT.righ_shift}>Create new user account:</p>
                     <button id="button" ><Link to="/signup">Sign up</Link></button>
+=======
+                    <p class={FORMAT.righ_shift}>Create new user account:</p>
+                    <button id="button" ><Link to="/signup">Sign up</Link></button>(/*nav to other page */)
+>>>>>>> 066bb5df9ef75799722e5eccf35447e269c959d6
                 </section>
             </form>
         </div>
