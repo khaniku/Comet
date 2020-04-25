@@ -24,10 +24,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
     "react-select": "^3.0.8",
-<<<<<<< HEAD
     "react-table": "^7.0.0",
-=======
->>>>>>> 066bb5df9ef75799722e5eccf35447e269c959d6
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
