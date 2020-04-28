@@ -78,7 +78,7 @@ public class UserController {
         Optional<Role> role = roleRepository.findByName(RoleName.Surveyor);
         return userRepository.findByRoles(role);
     }
-
+/*
 <<<<<<< HEAD
     @PostMapping("/resetPassword")
     public ResponseEntity<?> resetPassword(@RequestParam("email") String userEmail) {
@@ -97,7 +97,7 @@ public class UserController {
     }
 
 =======
->>>>>>> b7b24934e102a1cc2aaf18b18599639cbd0d452c
+>>>>>>>b7b24934e102a1cc2aaf18b18599639cbd0d452c */
     @PostMapping("/pushToken")
     public ResponseEntity<?> pushToken( @Valid @RequestBody PushTokenRequest pushTokenRequest) {
         if(pushTokenRepository.existsByToken(pushTokenRequest.getToken())) {
