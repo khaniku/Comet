@@ -51,6 +51,10 @@ public class User extends DateAudit {
     private String email;
     private String phoneNumber;
 
+    private String token;
+
+    private String tokenExpiryDate;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -85,12 +89,6 @@ public class User extends DateAudit {
         this.username = username;
         this.email = email;
         this.password = password;
-    }
-
-    //@Entity
-    public class PasswordResetToken {
-
-        private String token;
     }
 
     @JsonIgnore

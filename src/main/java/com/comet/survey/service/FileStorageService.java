@@ -1,12 +1,15 @@
 package com.comet.survey.service;
 
 import com.comet.survey.exception.FileStorageException;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -34,6 +37,11 @@ public class FileStorageService {
     public String storeFile(MultipartFile file) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String filePath = "uploads/"+fileName;
+        File f = new File(filePath);
+        if(f.exists()){
+            fileName = checkFileName(fileName);
+        }
 
         try {
             // Check if the file's name contains invalid characters
@@ -51,17 +59,35 @@ public class FileStorageService {
         }
     }
 
-//    public Resource loadFileAsResource(String fileName) {
-//        try {
-//            Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
-//            Resource resource = new UrlResource(filePath.toUri());
-//            if(resource.exists()) {
-//                return resource;
-//            } else {
-//                throw new MyFileNotFoundException("File not found " + fileName);
-//            }
-//        } catch (MalformedURLException ex) {
-//            throw new MyFileNotFoundException("File not found " + fileName, ex);
-//        }
-//    }
+    public String checkFileName(String fileName) {
+        String basename = FilenameUtils.getBaseName(fileName);
+        String extension = FilenameUtils.getExtension(fileName);
+        String path = "uploads/";
+        String filePath = path+fileName;
+        String newName = fileName;
+        long counter = 1;
+        File file = new File(filePath);
+        while(file.exists()){
+            newName = basename+"_"+counter+"."+extension;
+            filePath = path+"/"+newName;
+            file = new File(filePath);
+            counter++;
+        }
+        String newFileName = newName;
+        return newFileName;
+    }
+
+    public Resource loadFileAsResource(String fileName) {
+        try {
+            Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+            if(resource.exists()) {
+                return resource;
+            } else {
+                throw new FileStorageException("File not found " + fileName);
+            }
+        } catch (MalformedURLException ex) {
+            throw new FileStorageException("File not found " + fileName, ex);
+        }
+    }
 }
