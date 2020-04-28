@@ -86,8 +86,8 @@ public class PictureController {
         return ResponseEntity.ok(pictures);
     }
 
-    @GetMapping("test")
-    public ResponseEntity<?> fetchPics(@RequestParam String fileName, HttpServletRequest request) {
+    @GetMapping("/downloadFile/{fileName:.+}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
         // Load file as Resource
         Resource resource = fileStorageService.loadFileAsResource(fileName);
 
@@ -108,19 +108,6 @@ public class PictureController {
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
-    }
-
-    @GetMapping("/getPictures")
-    public List downloadFile(@RequestParam long assetId, HttpServletRequest request) {
-        SiteAsset siteAsset = siteAssetRepository.findById(assetId)
-                .orElseThrow(() -> new ResourceNotFoundException("Site Asset", "id", assetId));
-
-        List<Picture> pictures = pictureRepository.findByPictureAsset(siteAsset);
-
-        return ( pictures
-                .stream()
-                .map(picture -> fetchPics(picture.getFileLocation(), request))
-                .collect(Collectors.toList()));
     }
 
 }
