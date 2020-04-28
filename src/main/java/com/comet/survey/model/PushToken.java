@@ -1,6 +1,8 @@
 package com.comet.survey.model;
 
 import com.comet.survey.utility.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -20,7 +22,7 @@ public class PushToken {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonManagedReference
+    //@JsonManagedReference(value = "userDevice")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userId;
@@ -107,7 +109,7 @@ public class PushToken {
 
         // Later, you can get the Push Receipts using the ids you saved from above.
         // Usually, the receipts are available within a few seconds, but when Expo is under load,
-        // it can take up to 30 min. Push Reciepts are available for at least 1 day
+        // it can take up to 30 min. Push Receipts are available for at least 1 day
         List<String> ids = new ArrayList<>();
         ids.add("xxxxxxx-yyyy-yyyy-yyyy-xyxyxyxyxyxy");
         try {
