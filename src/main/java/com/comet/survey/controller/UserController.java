@@ -54,6 +54,11 @@ public class UserController {
     @PostMapping("/resetPassword")
     public ResponseEntity<?> resetPassword(@RequestParam("email") String userEmail) {
         Optional<User> findUser = userRepository.findByEmail(userEmail);
+        if (findUser == null) {
+            throw new UserNotFoundException();
+        }
+        String token = UUID.randomUUID().toString();
+        userService.createPasswordResetTokenForUser(user, token);
         User user = new User();
         if (findUser.isPresent()) {
             user = findUser.get();
