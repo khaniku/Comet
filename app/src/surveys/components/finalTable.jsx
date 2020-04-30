@@ -160,7 +160,8 @@ function Table({ columns, data, updateMyData, skipReset }) {
                 <td>{surveyData.customerName}</td>
                 <td>&nbsp;</td>
                 {/* <td><button type="submit" value="Submit" onClick={this.handleDelete}>delete</button></td> */}
-                <td><button type="submit" value="Submit" onClick={handleDelete()}>delete</button></td>
+                <td><button type="submit" value="Submit">delete</button></td>
+                {/*<td><button type="submit" value="Submit" onClick={handleDelete()}>delete</button></td>*/}
                 <td>&nbsp;</td>
               </tr>
             );
@@ -292,7 +293,7 @@ function App() {
     []
   );
 
-  handleDelete = () => {
+  /*handleDelete = () => {
     $.ajax({
       url: "http://159.203.100.198:5000",
       type: 'DELETE',
@@ -304,7 +305,7 @@ function App() {
         alert("Delete error");
       }
     });
-  }
+  }*/
 
   const [surveys, setSurveys] = useState([]);
   const auth = useSelector(state => state.auth);

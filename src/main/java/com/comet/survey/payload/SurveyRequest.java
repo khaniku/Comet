@@ -16,11 +16,11 @@ public class SurveyRequest {
     private long surveyor;
 
     @NotNull
-    @Size(min = 1, max = 70)
+    @Size(min = 1, max = 80)
     private String customerName;
 
     @NotNull
-    @Size(min = 1, max = 70)
+    @Size(min = 1, max = 100)
     private String siteAddress;
 
     @JsonFormat(pattern="dd MMMM yyyy")

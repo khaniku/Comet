@@ -1,15 +1,16 @@
 package com.comet.survey.repository;
 
-import com.comet.survey.model.PushToken;
-import com.comet.survey.model.User;
+import com.comet.survey.model.PasswordResetToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface PushTokenRepository extends JpaRepository<PushToken, Long> {
-    List<PushToken> findByUserId(User user);
+public interface PasswordResetTokenRepository extends JpaRepository<PasswordResetToken, Long> {
+
+
     Boolean existsByToken(String token);
+
+    Optional<PasswordResetToken> findByToken(String token);
 }

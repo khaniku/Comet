@@ -3,10 +3,12 @@ import { Switch } from 'react-router-dom';
 import { Route, Redirect } from 'react-router-dom'
 import Login from '../auth/login.js';
 import AuthChecker from '../auth/AuthChecker';
-// import Dashboard from '../dashboard';
+import Dashboard from '../dashboard';
 import Page from '../surveys/components/page'
 import SignUp from '../auth/signup.js';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import createSurvey from '../newSurvey/createSurvey'
+import navigation from '../navBar/navigation'
 import * as actions from '../actions';
 import newSurvey from '../newSurvey/createSurvey';
 import ButtonPanel from '../navBar/Components/ButtonPanel';
