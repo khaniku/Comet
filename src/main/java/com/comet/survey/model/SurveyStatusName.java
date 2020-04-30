@@ -1,4 +1,6 @@
 package com.comet.survey.model;
 
-public class SurveyStatus {
+public enum SurveyStatusName {
+    Pending,
+    Completed
 }

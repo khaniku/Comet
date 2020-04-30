@@ -26,6 +26,7 @@ public class PushToken {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User userId;
+
     private String token;
     private String brand;
 

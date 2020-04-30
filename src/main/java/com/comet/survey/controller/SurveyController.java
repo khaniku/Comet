@@ -1,17 +1,15 @@
 package com.comet.survey.controller;
 
+import com.comet.survey.exception.AppException;
 import com.comet.survey.exception.ResourceNotFoundException;
-import com.comet.survey.model.PushToken;
-import com.comet.survey.model.Survey;
-import com.comet.survey.model.User;
-import com.comet.survey.payload.ApiResponse;
-import com.comet.survey.payload.AssignedSurveys;
-import com.comet.survey.payload.SurveyRequest;
-import com.comet.survey.payload.UserRequest;
+import com.comet.survey.model.*;
+import com.comet.survey.payload.*;
 import com.comet.survey.repository.PushTokenRepository;
 import com.comet.survey.repository.SurveyRepository;
+import com.comet.survey.repository.SurveyStatusRepository;
 import com.comet.survey.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +19,7 @@ import org.springframework.security.core.Authentication;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/survey")
@@ -28,6 +27,9 @@ public class SurveyController {
 
     @Autowired
     SurveyRepository surveyRepository;
+
+    @Autowired
+    SurveyStatusRepository surveyStatusRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -45,8 +47,28 @@ public class SurveyController {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 
-       List<Survey> survey = surveyRepository.findBySurveyor(user);
-       return ResponseEntity.ok(survey);
+//        if(status == null || status.length() == 0)
+//            return new ResponseEntity(new ApiResponse(false, "Status is empty"),
+//                    HttpStatus.BAD_REQUEST);
+
+        List<Survey> survey = surveyRepository.findBySurveyor(user);
+
+//        List<Survey> specificSurveys = survey.stream()
+//               .filter(s -> s.getSurveyStatus().getName() == SurveyStatusName.valueOf(status))
+//               .collect(Collectors.toList());
+
+        return ResponseEntity.ok(survey);
+    }
+
+    @PutMapping("/updateStatus")
+    public ResponseEntity<?> updateStatus(@Valid @RequestBody SurveyStatusRequest surveyStatusRequest) {
+        SurveyStatus surveyStatus = surveyStatusRepository.findByName(surveyStatusRequest.getStatus())
+                .orElseThrow(() -> new AppException("Survey status not found."));
+        Survey survey = surveyRepository.findById(surveyStatusRequest.getSurveyId())
+                .orElseThrow(() -> new AppException("Survey not found."));
+        survey.setSurveyStatus(surveyStatus);
+        surveyRepository.save(survey);
+        return ResponseEntity.ok(survey);
     }
 
 
@@ -60,7 +82,12 @@ public class SurveyController {
         }
         survey.setSurveyor(surveyor);
 
-        List<PushToken> pushTokens =  pushTokenRepository.findByUserId(surveyor);
+        SurveyStatus surveyStatus = surveyStatusRepository.findByName(SurveyStatusName.valueOf("Pending"))
+                .orElseThrow(() -> new AppException("Survey status not set."));
+
+        survey.setSurveyStatus(surveyStatus);
+
+        List<PushToken> pushTokens = pushTokenRepository.findByUserId(surveyor);
 
         PushToken token = new PushToken();
         token.sendNotifications(pushTokens, surveyRequest.getCustomerName());

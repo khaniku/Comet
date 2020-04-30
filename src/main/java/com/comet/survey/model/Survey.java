@@ -6,6 +6,7 @@ import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -41,6 +42,10 @@ public class Survey extends DateAudit{
 
     @NotBlank
     private String siteAddress;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "survey_status_id", referencedColumnName = "id")
+    private SurveyStatus surveyStatus;
 
     public Survey() {
 
