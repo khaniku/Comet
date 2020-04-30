@@ -56,7 +56,29 @@ function SelectColumnFilter({
   );
 }
 
-function Table({ columns, data, updateMyData, skipReset }) {
+handleDelete = (id, accessToken) => {
+  console.log('Got to this point...');
+  console.log(accessToken);
+  await fetch("http://159.203.100.198:5000/api/delete", {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer '+accessToken
+    },
+    body: JSON.stringify({ surveyId: id }),
+  })
+    .then((response) => {
+      response.json().then(responseJson => {
+        return responseJson;
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function Table({ columns, data, updateMyData, skipReset, accessToken}) {
   const filterTypes = React.useMemo(
     () => ({
       text: (rows, id, filterValue) => {
@@ -160,8 +182,8 @@ function Table({ columns, data, updateMyData, skipReset }) {
                 <td>{surveyData.customerName}</td>
                 <td>&nbsp;</td>
                 {/* <td><button type="submit" value="Submit" onClick={this.handleDelete}>delete</button></td> */}
-                <td><button type="submit" value="Submit">delete</button></td>
-                {/*<td><button type="submit" value="Submit" onClick={handleDelete()}>delete</button></td>*/}
+                {/*<td><button type="submit" value="Submit">delete</button></td>*/}
+                <td><button type="submit" value="Submit" onClick={() => {alert('why.....')}}>delete</button></td>
                 <td>&nbsp;</td>
               </tr>
             );
@@ -242,6 +264,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
 }
 
 function App() {
+  const auth = useSelector(state => state.auth);
   const columns = React.useMemo(
     () => [
       {
@@ -293,22 +316,7 @@ function App() {
     []
   );
 
-  /*handleDelete = () => {
-    $.ajax({
-      url: "http://159.203.100.198:5000",
-      type: 'DELETE',
-      data: {'id': },
-      success: function (result) {
-        console.log('Success');
-      },
-      error: function (xhr, ajaxOptions, thrownError) {
-        alert("Delete error");
-      }
-    });
-  }*/
-
   const [surveys, setSurveys] = useState([]);
-  const auth = useSelector(state => state.auth);
 
   useEffect(() => {
     getSurveys(auth.accessToken).then(function (responseJson) {
@@ -318,7 +326,7 @@ function App() {
 
   return (
     <div>
-      <Table columns={columns} data={surveys} id="surveys" />
+      <Table columns={columns} data={surveys} accessToken={auth.accessToken} id="surveys" />
     </div>
   );
 }
