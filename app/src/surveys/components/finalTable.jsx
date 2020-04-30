@@ -10,7 +10,7 @@ import {
   useRowSelect
 } from "react-table";
 import styling from '../../css/survey.css'
-import {getSurveys} from '../../actions/api';
+import { getSurveys } from '../../actions/api';
 
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter }
@@ -64,8 +64,8 @@ function Table({ columns, data, updateMyData, skipReset }) {
           const rowValue = row.values[id];
           return rowValue !== undefined
             ? String(rowValue)
-                .toLowerCase()
-                .startsWith(String(filterValue).toLowerCase())
+              .toLowerCase()
+              .startsWith(String(filterValue).toLowerCase())
             : true;
         });
       }
@@ -150,7 +150,23 @@ function Table({ columns, data, updateMyData, skipReset }) {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody>
+          {data.map((surveyData) => {
+            return (
+              <tr key={surveyData.id}>
+                <td>&nbsp;</td>
+                <td>{surveyData.id}</td>
+                <td>{surveyData.siteAddress}</td>
+                <td>{surveyData.customerName}</td>
+                <td>&nbsp;</td>
+                {/* <td><button type="submit" value="Submit" onClick={this.handleDelete}>delete</button></td> */}
+                <td><button type="submit" value="Submit" onClick={handleDelete()}>delete</button></td>
+                <td>&nbsp;</td>
+              </tr>
+            );
+          })}
+        </tbody>
+        {/* <tbody {...getTableBodyProps()}>
           {page.map(row => {
             prepareRow(row);
             return (
@@ -173,7 +189,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
               </tr>
             );
           })}
-        </tbody>
+        </tbody> */}
       </table>
 
       <div className="pagination">
@@ -253,7 +269,7 @@ function App() {
             accessor: "status",
             Filter: SelectColumnFilter,
             filter: "includes"
-          },
+          }/*,
 					{
 					  width: 'fit-content',
 						Header: '',
@@ -269,27 +285,39 @@ function App() {
 						Cell: () => (
 						  <button className={styling.button} id="delete-button" name="action" value="delete" onClick={(item) => { if (window.confirm('Are you sure you sure you want to delete this survey')) { this.deleteItem(item) } else { this.onCancel(item) } }}>delete</button>
             )
-					}
+					}*/
         ]
       }
     ],
     []
   );
 
-  const [isLoading, setLoading] = useState(true);
+  handleDelete = () => {
+    $.ajax({
+      url: "http://159.203.100.198:5000",
+      type: 'DELETE',
+      data: {'id': },
+      success: function (result) {
+        console.log('Success');
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert("Delete error");
+      }
+    });
+  }
+
   const [surveys, setSurveys] = useState([]);
   const auth = useSelector(state => state.auth);
 
-   useEffect(() => {
-       getSurveys(auth.accessToken).then(function (responseJson) {
-        setSurveys(responseJson)
-        setLoading(false);
-      })
-   }, []);
-   
+  useEffect(() => {
+    getSurveys(auth.accessToken).then(function (responseJson) {
+      setSurveys(responseJson)
+    })
+  }, []);
+
   return (
     <div>
-		  <Table columns={columns} data={surveys} id="surveys" />
+      <Table columns={columns} data={surveys} id="surveys" />
     </div>
   );
 }

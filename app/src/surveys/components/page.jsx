@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FinalTable from "./finalTable";
-import cometLogo from '../../image/comet-logo.png'
+import cometLogo from '../../image/comet-logo.png';
+import { Link } from "react-router-dom";
 
 class page extends Component {
   state = { search: "" };
@@ -14,6 +15,9 @@ class page extends Component {
         <h1>Existing Surveys</h1>
         <div>
           <FinalTable />
+        </div>
+        <div>
+        <button id="button" ><Link to="/newSurvey">Create New Survey</Link></button>
         </div>
       </div>
     );

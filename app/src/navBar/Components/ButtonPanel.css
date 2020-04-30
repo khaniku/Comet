@@ -1,157 +1,157 @@
 * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-  #ihtr{
-    padding:5px;
-    min-height:50px;
-    background-color:#65dc7a;
-  }
-  #icdj{
-    min-height:519px;
-  }
-  #idks{
-    flex-basis:29.4%;
-    background-color:#dca065;
-  }
-  #iig7{
-    background-color:#7465dc;
-  }
-  #id0ab{
-    display:none;
-  }
-  #ic3i5{
-    display:none;
-  }
-  #i65f{
-    background-repeat:repeat;
-    background-position:left top;
-    background-attachment:scroll;
-    background-size:auto;
-    border:1px solid rgb(33, 37, 41);
-  }
-  #ipjor{
-    border:1px solid #000000;
-  }
-  #izrzk{
-    background-color:#000000;
-  }
-  #i3t1m{
-    border:2px solid #000000;
-  }
-  #ikeh7{
-    border:1px solid #000000;
-  }
-  #ih9pd{
-    display:none;
-  }
-  #ibqbr{
-    display:none;
-  }
-  #i829i{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #ife2e{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #ivfmj{
-    background-color:#6575dc;
-  }
-  #iekyo{
-    border:1px solid #4a76a2;
-  }
-  #iasjh{
-    border:1px solid #000000;
-  }
-  #i3bkc{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #i1p0p{
-    padding:5px;
-    min-height:50px;
-  }
-  #i7mgj{
-    padding:5px;
-    min-height:50px;
-  }
-  #ibnfa{
-   
-  }
-  #i47hr{
-    padding:5px;
-    min-height:50px;
-  }
-  #ig8xu{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #icwu2{
-    padding:5px;
-    min-height:50px;
-  }
-  #i49ui{
-    padding:5px;
-    min-height:50px;
-  }
-  #ifm9c{
-    padding:5px;
-    min-height:50px;
-  }
-  #itxy6{
-    border:0 solid #000000;
-  }
-  #iam7w{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #i8iul{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #izbyl{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #i0obg{
-    border:1px solid #000000;
-  }
-  #ipjel{
-    border:1px solid #000000;
-  }
-  #igxc07{
-    display:none;
-  }
-  #id60ii{
-    display:none;
-  }
-  #iqu5bc{
-   
-  }
-  #ibk03b{
-    background-color:#ffffff;
-  }
-  #i873b2{
-    display:none;
-  }
-  #i1kp7r{
-    display:none;
-  }
-  #ioakg4{
-    background-color:#7265dc;
-  }
-  #iu3y3r{
-    display:none;
-  }
-  #ibkpet{
-    display:none;
-  }
-  #iu9z9f{
-    background-color:#7265dc;
-  }
-  #iz8tl{
-    border:1px solid rgb(33, 37, 41);
-  }
-  #izlsqv{
-    background-color:#6965dc;
-  }
-  #icqr2n{
-    background-color:#6965dc;
-  }
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+#ihtr{
+  padding:5px;
+  min-height:50px;
+  background-color:#65dc7a;
+}
+#icdj{
+  min-height:519px;
+}
+#idks{
+  flex-basis:29.4%;
+  background-color:#dca065;
+}
+#iig7{
+  background-color:#7465dc;
+}
+#id0ab{
+  display:none;
+}
+#ic3i5{
+  display:none;
+}
+#i65f{
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:auto;
+  border:1px solid rgb(33, 37, 41);
+}
+#ipjor{
+  border:1px solid #000000;
+}
+#izrzk{
+  background-color:#000000;
+}
+#i3t1m{
+  border:2px solid #000000;
+}
+#ikeh7{
+  border:1px solid #000000;
+}
+#ih9pd{
+  display:none;
+}
+#ibqbr{
+  display:none;
+}
+#i829i{
+  border:1px solid rgb(33, 37, 41);
+}
+#ife2e{
+  border:1px solid rgb(33, 37, 41);
+}
+#ivfmj{
+  background-color:#6575dc;
+}
+#iekyo{
+  border:1px solid #4a76a2;
+}
+#iasjh{
+  border:1px solid #000000;
+}
+#i3bkc{
+  border:1px solid rgb(33, 37, 41);
+}
+#i1p0p{
+  padding:5px;
+  min-height:50px;
+}
+#i7mgj{
+  padding:5px;
+  min-height:50px;
+}
+#ibnfa{
+ 
+}
+#i47hr{
+  padding:5px;
+  min-height:50px;
+}
+#ig8xu{
+  border:1px solid rgb(33, 37, 41);
+}
+#icwu2{
+  padding:5px;
+  min-height:50px;
+}
+#i49ui{
+  padding:5px;
+  min-height:50px;
+}
+#ifm9c{
+  padding:5px;
+  min-height:50px;
+}
+#itxy6{
+  border:0 solid #000000;
+}
+#iam7w{
+  border:1px solid rgb(33, 37, 41);
+}
+#i8iul{
+  border:1px solid rgb(33, 37, 41);
+}
+#izbyl{
+  border:1px solid rgb(33, 37, 41);
+}
+#i0obg{
+  border:1px solid #000000;
+}
+#ipjel{
+  border:1px solid #000000;
+}
+#igxc07{
+  display:none;
+}
+#id60ii{
+  display:none;
+}
+#iqu5bc{
+ 
+}
+#ibk03b{
+  background-color:#ffffff;
+}
+#i873b2{
+  display:none;
+}
+#i1kp7r{
+  display:none;
+}
+#ioakg4{
+  background-color:#7265dc;
+}
+#iu3y3r{
+  display:none;
+}
+#ibkpet{
+  display:none;
+}
+#iu9z9f{
+  background-color:#7265dc;
+}
+#iz8tl{
+  border:1px solid rgb(33, 37, 41);
+}
+#izlsqv{
+  background-color:#6965dc;
+}
+#icqr2n{
+  background-color:#6965dc;
+}
