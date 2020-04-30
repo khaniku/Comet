@@ -8,6 +8,7 @@ import com.comet.survey.payload.*;
 import com.comet.survey.repository.MeasurementRepository;
 import com.comet.survey.repository.SiteAssetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,9 @@ public class MeasurementController {
 
         if (siteAsset.isPresent()) {
             measurement.setAsset(siteAsset.get());
+        }else{
+            return new ResponseEntity(new ApiResponse(false, "Asset not found"),
+                    HttpStatus.BAD_REQUEST);
         }
 
         Measurement result = measurementRepository.save(measurement);
@@ -58,6 +62,9 @@ public class MeasurementController {
             SiteAsset siteAsset = new SiteAsset();
             if (fetchAsset.isPresent()) {
                 siteAsset = fetchAsset.get();
+            }else{
+                return new ResponseEntity(new ApiResponse(false, "Asset not found"),
+                        HttpStatus.BAD_REQUEST);
             }
             List<Measurement> measurement = measurementRepository.findByAsset(siteAsset);
             if(!measurement.isEmpty())

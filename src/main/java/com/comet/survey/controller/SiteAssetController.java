@@ -2,10 +2,12 @@ package com.comet.survey.controller;
 
 import com.comet.survey.model.SiteAsset;
 import com.comet.survey.model.Survey;
+import com.comet.survey.payload.ApiResponse;
 import com.comet.survey.payload.SiteAssetRequest;
 import com.comet.survey.repository.SiteAssetRepository;
 import com.comet.survey.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +31,9 @@ public class SiteAssetController {
         Optional<Survey> survey = surveyRepository.findById(siteAssetRequest.getSurveyId());
         if (survey.isPresent()) {
             siteAsset.setSurvey(survey.get());
+        }else{
+            return new ResponseEntity(new ApiResponse(false, "Survey not found"),
+                    HttpStatus.BAD_REQUEST);
         }
         SiteAsset result = siteAssetRepository.save(siteAsset);
 
@@ -41,6 +46,9 @@ public class SiteAssetController {
         Survey survey = new Survey();
         if (fetchSurvey.isPresent()) {
             survey = fetchSurvey.get();
+        }else{
+            return new ResponseEntity(new ApiResponse(false, "Asset not found"),
+                    HttpStatus.BAD_REQUEST);
         }
         List<SiteAsset> siteAssets = siteAssetRepository.findBySurvey(survey);
         return ResponseEntity.ok(siteAssets);

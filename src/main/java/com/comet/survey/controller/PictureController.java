@@ -45,7 +45,6 @@ public class PictureController {
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file, long assetId) {
-        System.out.println("file: "+file);
         String fileName = fileStorageService.storeFile(file);
         Optional<SiteAsset> siteAsset = siteAssetRepository.findById(assetId);
         Picture picture = new Picture();
