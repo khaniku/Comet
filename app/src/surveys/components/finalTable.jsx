@@ -58,7 +58,7 @@ function SelectColumnFilter({
 
 function handleDelete(id, accessToken) {
   fetch("http://159.203.100.198:5000/api/survey/delete?surveyId=" + id, {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

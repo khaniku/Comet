@@ -113,5 +113,5 @@ public class SurveyController {
         surveyRepository.delete(survey);
 
         return ResponseEntity.ok(new ApiResponse(true, "Survey deleted"));
-    } 
+    }
 }
