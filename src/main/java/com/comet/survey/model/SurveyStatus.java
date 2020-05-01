@@ -33,4 +33,27 @@ public class SurveyStatus {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public SurveyStatusName getName() {
+        return name;
+    }
+
+    public void setName(SurveyStatusName name) {
+        this.name = name;
+    }
+
+    public Set<Survey> getSurveys() {
+        return surveys;
+    }
+
+    public void setSurveys(Set<Survey> surveys) {
+        this.surveys = surveys;
+    }
 }
