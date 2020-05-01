@@ -102,4 +102,13 @@ public class SurveyController {
         return ResponseEntity.ok(result);
     }
 
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteSurvey(@RequestParam Long surveyId) {
+        Survey survey = surveyRepository.findById(surveyId)
+        .orElseThrow(() -> new AppException("Survey not found."));
+
+        surveyRepository.delete(survey);
+
+        return ResponseEntity.ok(new ApiResponse(true, "Survey deleted"));
+    } 
 }

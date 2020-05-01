@@ -59,14 +59,13 @@ function SelectColumnFilter({
 handleDelete = (id, accessToken) => {
   console.log('Got to this point...');
   console.log(accessToken);
-  await fetch("http://159.203.100.198:5000/api/delete", {
-    method: 'POST',
+  await fetch("http://159.203.100.198:5000/api/survey/delete" + id, {
+    method: 'DELETE',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: 'Bearer '+accessToken
     },
-    body: JSON.stringify({ surveyId: id }),
   })
     .then((response) => {
       response.json().then(responseJson => {
@@ -180,10 +179,8 @@ function Table({ columns, data, updateMyData, skipReset, accessToken}) {
                 <td>{surveyData.id}</td>
                 <td>{surveyData.siteAddress}</td>
                 <td>{surveyData.customerName}</td>
-                <td>&nbsp;</td>
-                {/* <td><button type="submit" value="Submit" onClick={this.handleDelete}>delete</button></td> */}
-                {/*<td><button type="submit" value="Submit">delete</button></td>*/}
-                <td><button type="submit" value="Submit" onClick={() => {alert('why.....')}}>delete</button></td>
+                <td>{surveyData.surveyStatus.name}</td>
+                <td><button type="submit" value="Submit" onClick={() => alert('why.....')}>delete</button></td>
                 <td>&nbsp;</td>
               </tr>
             );
@@ -323,7 +320,7 @@ function App() {
       setSurveys(responseJson)
     })
   }, []);
-
+  
   return (
     <div>
       <Table columns={columns} data={surveys} accessToken={auth.accessToken} id="surveys" />
