@@ -79,6 +79,9 @@ public class SurveyController {
         User surveyor = new User();
         if(getSurveyor.isPresent()){
             surveyor = getSurveyor.get();
+        }else{
+            return new ResponseEntity(new ApiResponse(false, "User not found"),
+                    HttpStatus.BAD_REQUEST);
         }
         survey.setSurveyor(surveyor);
 

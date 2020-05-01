@@ -56,11 +56,12 @@ function SelectColumnFilter({
   );
 }
 
-handleDelete = (id, accessToken) => {
+function handleDelete(id, accessToken){
   console.log('Got to this point...');
   console.log(accessToken);
   await fetch("http://159.203.100.198:5000/api/survey/delete" + id, {
-    method: 'DELETE',
+   fetch("http://159.203.100.198:5000/api/delete?surveyId="+id, {
+    method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -310,7 +311,7 @@ function App() {
         ]
       }
     ],
-    []
+    [
   );
 
   const [surveys, setSurveys] = useState([]);
