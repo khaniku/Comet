@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 import javax.validation.constraints.NotNull;
 
-@Data
+//@Data
 public class PictureUploadRequest {
     @NotNull
     MultipartFile file;
@@ -12,4 +12,19 @@ public class PictureUploadRequest {
     @NotNull
     private long assetId;
 
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    public long getAssetId() {
+        return assetId;
+    }
+
+    public void setAssetId(long assetId) {
+        this.assetId = assetId;
+    }
 }

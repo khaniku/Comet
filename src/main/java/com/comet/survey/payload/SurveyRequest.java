@@ -9,7 +9,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.*;
 import java.util.Date;
 
-@Data
+//@Data
 public class SurveyRequest {
 
     @NotNull(message = "Please choose a surveyor")
@@ -27,4 +27,35 @@ public class SurveyRequest {
     @Temporal(TemporalType.DATE)
     private Date dueDate;
 
+    public long getSurveyor() {
+        return surveyor;
+    }
+
+    public void setSurveyor(long surveyor) {
+        this.surveyor = surveyor;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getSiteAddress() {
+        return siteAddress;
+    }
+
+    public void setSiteAddress(String siteAddress) {
+        this.siteAddress = siteAddress;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
 }

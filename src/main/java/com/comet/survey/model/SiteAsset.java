@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
-@Data
+//@Data
 @Entity
 @Table(name = "site_asset")
 public class SiteAsset {
@@ -56,4 +56,43 @@ public class SiteAsset {
         this.survey = survey;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAssetType() {
+        return assetType;
+    }
+
+    public void setAssetType(String assetType) {
+        this.assetType = assetType;
+    }
+
+    public Set<Measurement> getMeasurements() {
+        return measurements;
+    }
+
+    public void setMeasurements(Set<Measurement> measurements) {
+        this.measurements = measurements;
+    }
+
+    public Set<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(Set<Picture> pictures) {
+        this.pictures = pictures;
+    }
 }

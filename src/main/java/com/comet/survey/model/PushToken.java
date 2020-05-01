@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-@Data
+//@Data
 @Entity
 @Table(name = "device_push_token")
 public class PushToken {
@@ -36,6 +36,38 @@ public class PushToken {
 
     public PushToken(String token, String brand) {
         this.token = token;
+        this.brand = brand;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 

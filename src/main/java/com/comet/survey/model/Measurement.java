@@ -31,13 +31,35 @@ public class Measurement {
         this.description = description;
     }
 
-//    @JsonIgnore
-//    public SiteAsset getAsset() {
-//        return asset;
-//    }
-//
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    public void setAsset(SiteAsset asset) {
-//        this.asset = asset;
-//    }
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getValue() {
+        return value;
+    }
+
+    public void setValue(long value) {
+        this.value = value;
+    }
+
+    public SiteAsset getAsset() {
+        return asset;
+    }
+
+    public void setAsset(SiteAsset asset) {
+        this.asset = asset;
+    }
 }

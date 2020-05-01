@@ -5,7 +5,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@NoArgsConstructor
 @Table(name = "Role")
 public class Role {
     @Id
@@ -17,6 +16,8 @@ public class Role {
     @Column(length = 60)
     @NotBlank
     private RoleName name;
+
+    public Role() {}
 
     public Role(RoleName name) {
         this.name = name;
