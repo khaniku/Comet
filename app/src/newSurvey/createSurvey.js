@@ -116,7 +116,7 @@ class newSurvey extends React.Component {
             <textarea type="text" value={this.state.value} onChange={(e) => this.changeSurveyor(e)} />
         </label>
         <label>
-          : Due Date
+          Due Date
             <textarea type="text" value={this.state.value} onChange={(e) => this.changeDueDate(e)} />
         </label>
         <label>

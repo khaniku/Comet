@@ -56,15 +56,13 @@ function SelectColumnFilter({
   );
 }
 
-function handleDelete(id, accessToken){
-  console.log('Got to this point...');
-  console.log(accessToken);
-  await fetch("http://159.203.100.198:5000/api/survey/delete" + id, {
+function handleDelete(id, accessToken) {
+  fetch("http://159.203.100.198:5000/api/survey/delete?surveyId=" + id, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: 'Bearer '+accessToken
+      Authorization: 'Bearer ' + accessToken
     },
   })
     .then((response) => {
@@ -180,7 +178,8 @@ function Table({ columns, data, updateMyData, skipReset, accessToken}) {
                 <td>{surveyData.siteAddress}</td>
                 <td>{surveyData.customerName}</td>
                 <td>{surveyData.surveyStatus.name}</td>
-                <td><button type="submit" value="Submit" onClick={() => alert('why.....')}>delete</button></td>
+                <td><button type="submit" value="Submit" id="edit-button">edit</button></td>
+                <td><button type="submit" value="Submit" id="delete-button" onClick={() => handleDelete(surveyData.id, accessToken)}>delete</button></td>
                 <td>&nbsp;</td>
               </tr>
             );
@@ -309,8 +308,7 @@ function App() {
 					}*/
         ]
       }
-    ],
-    [
+    ]
   );
 
   const [surveys, setSurveys] = useState([]);
@@ -320,7 +318,7 @@ function App() {
       setSurveys(responseJson)
     })
   }, []);
-  
+
   return (
     <div>
       <Table columns={columns} data={surveys} accessToken={auth.accessToken} id="surveys" />
