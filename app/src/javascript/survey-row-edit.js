@@ -56,7 +56,7 @@ $(document).on("click", "#edit-button", function() {
 		tds.prop('contenteditable', false);
 
 		$.ajax({
-			url: "",
+			url: "http://159.203.100.198:5000/api/auth/",
 			method: "POST",
 			data: dict,
 
