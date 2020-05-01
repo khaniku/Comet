@@ -7,7 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "survey_status")
 public class SurveyStatus {
@@ -32,5 +31,6 @@ public class SurveyStatus {
     public SurveyStatus(SurveyStatusName name) {
         this.name = name;
     }
+
 
 }

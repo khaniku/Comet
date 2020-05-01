@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+//@Data
 @Entity
 @Table(name = "survey")
 public class Survey extends DateAudit{
@@ -57,4 +57,67 @@ public class Survey extends DateAudit{
         this.dueDate = dueDate;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getRequester() {
+        return requester;
+    }
+
+    public void setRequester(User requester) {
+        this.requester = requester;
+    }
+
+    public User getSurveyor() {
+        return surveyor;
+    }
+
+    public void setSurveyor(User surveyor) {
+        this.surveyor = surveyor;
+    }
+
+    public Set<SiteAsset> getSiteAsset() {
+        return siteAsset;
+    }
+
+    public void setSiteAsset(Set<SiteAsset> siteAsset) {
+        this.siteAsset = siteAsset;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getSiteAddress() {
+        return siteAddress;
+    }
+
+    public void setSiteAddress(String siteAddress) {
+        this.siteAddress = siteAddress;
+    }
+
+    public SurveyStatus getSurveyStatus() {
+        return surveyStatus;
+    }
+
+    public void setSurveyStatus(SurveyStatus surveyStatus) {
+        this.surveyStatus = surveyStatus;
+    }
 }
