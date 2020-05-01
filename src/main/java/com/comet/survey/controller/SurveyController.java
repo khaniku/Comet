@@ -115,7 +115,7 @@ public class SurveyController {
         return ResponseEntity.ok(new ApiResponse(true, "Survey deleted"));
     }
 
-    @PutMapping("/update")
+    /*@PutMapping("/update")
     public ResponseEntity<?> updateSurveyRecord( @Valid @RequestBody UserRequest userRequest) {
         Survey survey = userRepository.findById(userRequest.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userRequest.getUserId()));
@@ -125,5 +125,5 @@ public class SurveyController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new ApiResponse(true, "Survey record updated"));
-    }
+    }*/
 }
